@@ -225,7 +225,7 @@ btn_clr.grid (row=1, column=3, padx=1, pady=1, sticky="nesw")
 
 
 
-solve = Solve(cube.Cube(True, "cube.bin"))
+solve = Solve(cube.Cube(True, "various_sample_scrambles/cube.bin"))
 
 def scmbl():
     scramble = txt_enter.get().split()

@@ -1,4 +1,4 @@
-def formCube(_sorted = False, _scramble = "scramble.bin"):
+def formCube(_sorted = False, _scramble = "various_scramble_samples/scramble.bin"):
     f = open(_scramble, "rb")
     cube = {}
     byte = f.read(1)
