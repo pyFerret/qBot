@@ -1,3 +1,14 @@
+# This file is how I plan to make the robot move and 
+# interact with the real world. It is for the raspberry 
+# pi to be able to interact with the motors, cameras, 
+# and buttons that I will attatch to make this project 
+# possible. Over time I expect this file to grow quite 
+# a bit, as right now all it does is start the camera 
+# view. I am currently working on extracting color from 
+# the camera view, so that I can see the stickers and 
+# nothing else, but for the moment it just looks at 
+# everything that is in frame.
+
 import cv2
 import gpiozero
 
