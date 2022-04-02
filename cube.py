@@ -1,5 +1,8 @@
 import binaryTranslation.bincubeconvert as bincubeconvert
 
+# This file contains the class that I use to dictate what a cube is
+# If you would like a new cube you can just make one with this class
+
 class Cube():
     def __init__(self, sort, scramble):
         self.cube = bincubeconvert.formCube(sort, scramble)
@@ -413,8 +416,9 @@ class Cube():
             return 2
         elif _ori == 2:
             return 1
+            
+# 420 lines lmfao blaze it
+            
         else: 
             print("something happened when switching orientation")
             return 
-
-# 420 lines lmfao blaze it

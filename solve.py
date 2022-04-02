@@ -2,6 +2,11 @@ import cube
 import binaryTranslation.bincubeconvert as bcc
 import json
 
+# This is where I have put all of the 
+# different parts of solving the cube.
+# This class can create its own cube, 
+# scramble it, and solve it entirely.
+
 class Solve:
     
     # to create a solve, give a cube to solve,

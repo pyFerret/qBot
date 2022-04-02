@@ -1,3 +1,10 @@
+# This is entirely for converting the virtual 
+# representation of the cube from one form to 
+# another. It can create a cube from a binary 
+# file, convert from cube form to bin form, 
+# convert from bin form to cube form, and 
+# convert from cube form to string form.
+
 def formCube(_sorted = False, _scramble = "various_scramble_samples/scramble.bin"):
     f = open(_scramble, "rb")
     cube = {}

@@ -1,3 +1,11 @@
+
+# This is a tkinter window that i created in 
+# order to help put in commands on the fly 
+# and put in algorithms without having to 
+# factor the code on my own. its pretty much
+# just for ease of life but it is still pretty 
+# important to the project.
+
 from tkinter import *
 from tkinter import ttk
 from solve import *
@@ -408,6 +416,9 @@ btn_cross.grid(row=1, column=1, padx=1, pady=1, sticky="nesw")
 btn_ftwol.grid(row=2, column=1, padx=1, pady=1, sticky="nesw")
 btn_print.grid(row=2, column=0, padx=1, pady=1, sticky="nesw")
 btn_clear.grid(row=3, column=0, padx=1, pady=1, sticky="nesw")
+
+# 420 lines lmfao blaze it
+
 btn_full.grid (row=4, column=0, padx=1, pady=1, sticky="nesw")
 frm_last.grid (row=3, column=1, padx=1, pady=1, sticky="nesw")
 btn_oll.grid  (row=0, column=0, padx=1, pady=1, sticky="nesw")
@@ -416,9 +427,6 @@ btn_lastl.grid(row=0, column=2, padx=1, pady=1, sticky="nesw")
 btn_fix.grid  (row=4, column=1, padx=1, pady=1, sticky="nesw")
 
 frm_grid.pack()
-
-# 420 lines lmfao blaze it
-
 box_list.pack()
 
 tab_parent.pack(expand=1, fill="both")
