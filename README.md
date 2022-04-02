@@ -38,7 +38,7 @@ Here you will see a variety of buttons and boxes, and I will now go through all 
 
 `last layer`; this button will (eventually) solve the whole last layer (oll and pll)
 
-`fix moves`; this button will fix the current list of moves(observable with list [moves]) to avoid redundency in moves that cancel out or add to one another (EX: `R R2 -> R'`)
+`fix moves`; this button will fix the current list of moves(observable with list [moves]) to avoid redundancy in moves that cancel out or add to one another (EX: `R R2 -> R'`)
 
 ---
 

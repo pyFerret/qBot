@@ -19,7 +19,7 @@ class Solve:
         with open("movesets.json","r") as file:
             self.movesets = json.load(file)
         self.Cube = _cube
-        self.cCube = cube.Cube(True, "cube.bin")
+        self.cCube = cube.Cube(True, "various_sample_scrambles/cube.bin")
 
     addMoves = lambda self : self.fullmoves + " " + self.moves
 

@@ -237,7 +237,7 @@ solve = Solve(cube.Cube(True, "various_sample_scrambles/cube.bin"))
 
 def scmbl():
     scramble = txt_enter.get().split()
-    if  scramble[0] == "scrmbl":
+    if  scramble[0] == "preset":
         scramble[1] = "various_sample_scrambles/" + scramble[1] + ".bin"
         solve.Cube = cube.Cube(True, scramble[1])
     else:
