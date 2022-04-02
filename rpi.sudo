@@ -1,0 +1,9 @@
+turn motor [motor_pin, degrees_turned]:
+    if degrees_turned > 0:
+        repeat |degrees_turned| / 1.8:
+            motor_pin = high
+            motor_pin = low
+    else:
+        repeat |degrees_turned| / 1.8:
+            motor_pin = low
+            motor_pin = high
