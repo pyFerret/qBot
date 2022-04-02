@@ -54,4 +54,6 @@ Here you will see a variety of buttons and boxes, and I will now go through all 
       - [ ] solving of pll
     - [ ] auf
 - [ ] create virtual cube out of real one
-- [ ] finish readme with debug tab
+- [ ] readme
+  - [ ] debug tab
+  - [ ] how to help
