@@ -9,7 +9,7 @@ This is the source code for my current biggest project that I'm working on. The 
 ## HOW TO USE
 If you wish to run this, the current run file that I use is `helperGUI.py`. Running it will start a window where you can manipulate the cube in a couple different ways. You should originally be greeted with this screen.
 
-![tkinter Solve tab](/images%20for%20the%20readme/solvescreen.png)
+![tkinter Solve tab](/images%20for%20reference/solvescreen.png)
 
 Here you will see a variety of buttons and boxes, and I will now go through all functionality on this tab. (:
 
