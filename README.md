@@ -57,6 +57,11 @@ Here you will see a variety of buttons and boxes, and I will now go through all 
 - [ ] create virtual cube out of real one
 #### optimization
 - [ ] go through comments and put specifics here
+#### other stuff
+- [ ] cube visualizer
+  - [ ] from binary to color
+  - [ ] from cube to color
+  - [ ] moving faces
 #### readme
 - [ ] debug tab
 - [ ] how to help
