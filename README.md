@@ -2,7 +2,7 @@
 
 ## DESCRIPTION
 
-This is the source code for my current biggest project that I'm working on. The primary idea is that I am forcing a robot to solve a rubik's cube (ethically *wink wink*). I started it early in the summer of 2021 when I didn't even have access to a computer or the internet and over the past year I have made enough progress on it that the sunc cost fallacy has kicked in. there are quite a few things that I still need to do (check to-do list below), but if you have any suggestions or ideas or fixes or anything else please let me know, because this is the first robot that I've ever made solo and I am probably not very prepared for this.
+This is the source code for my current biggest project that I'm working on. The primary idea is that I am forcing a robot to solve a rubik's cube (ethically *wink wink*). I started it early in the summer of 2021 when I didn't even have access to a computer or the internet and over the past year I have made enough progress on it that the sunk cost fallacy has kicked in. there are quite a few things that I still need to do (check to-do list below), but if you have any suggestions or ideas or fixes or anything else please let me know, because this is the first robot that I've ever made solo and I am probably not very prepared for this.
 
 ---
 
