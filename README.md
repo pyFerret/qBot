@@ -62,6 +62,7 @@ Here you will see a variety of buttons and boxes, and I will now go through all 
   - [ ] from binary to color
   - [ ] from cube to color
   - [ ] moving faces
+  - [ ] think of more things to do because i know there are more things to do
 #### readme
 - [ ] debug tab
 - [ ] how to help
