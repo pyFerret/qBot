@@ -237,12 +237,12 @@ btn_clr.grid (row=1, column=3, padx=1, pady=1, sticky="nesw")
 
 
 
-solve = Solve(cube.Cube(True, "various_sample_scrambles/cube.bin"))
+solve = Solve(cube.Cube(True, "scrambles/cube.bin"))
 
 def scmbl():
     scramble = txt_enter.get().split()
     if  scramble[0] == "preset":
-        scramble[1] = "various_sample_scrambles/" + scramble[1] + ".bin"
+        scramble[1] = "scrambles/" + scramble[1] + ".bin"
         solve.Cube = cube.Cube(True, scramble[1])
     else:
         solve.moves = txt_enter.get()
@@ -439,14 +439,16 @@ tab_parent.pack(expand=1, fill="both")
 ## CUBEVIS TAB
 
 
-frame = Frame(tab_cubev, width=600, height=400)
+frame = Frame(tab_cubev)
 frame.pack()
 frame.place(anchor='center', relx=0.5, rely=0.5)
 
-img = ImageTk.PhotoImage(Image.open("assets/visualizer/cubevis.png").resize((120, 90)))
+img = ImageTk.PhotoImage(Image.open("assets/visualizer/cubevis.png").resize((600, 450), resample=Image.NEAREST))
 
 label = Label(frame, image = img)
 label.pack()
 
 
 root.mainloop()
+image.initialize()
+image.create()
