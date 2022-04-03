@@ -443,7 +443,7 @@ frame = Frame(tab_cubev, width=600, height=400)
 frame.pack()
 frame.place(anchor='center', relx=0.5, rely=0.5)
 
-img = ImageTk.PhotoImage(Image.open("cubevis.png"))
+img = ImageTk.PhotoImage(Image.open("assets/visualizer/cubevis.png").resize((120, 90)))
 
 label = Label(frame, image = img)
 label.pack()

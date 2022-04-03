@@ -5,7 +5,7 @@
 # convert from bin form to cube form, and 
 # convert from cube form to string form.
 
-def formCube(_sorted = False, _scramble = "various_scramble_samples/scramble.bin"):
+def formCube(_sorted = False, _scramble = "scrambles/cube.bin"):
     f = open(_scramble, "rb")
     cube = {}
     byte = f.read(1)
