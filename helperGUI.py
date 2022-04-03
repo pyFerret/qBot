@@ -8,9 +8,11 @@
 
 from tkinter import *
 from tkinter import ttk
-from solve import *
-from binaryTranslation.bincubeconvert import *
+from PIL import ImageTk, Image  
 import json
+from solve import *
+from colorcubeconvert import *
+from binaryTranslation.bincubeconvert import *
 
 root = Tk()
 root.title("qBot Helper GUI")
@@ -19,9 +21,11 @@ tab_parent = ttk.Notebook(root)
 
 tab_solve = ttk.Frame(tab_parent)
 tab_debug = ttk.Frame(tab_parent)
+tab_cubev = ttk.Frame(tab_parent)
 
 tab_parent.add(tab_solve, text="Solve")
 tab_parent.add(tab_debug, text="Debug")
+tab_parent.add(tab_cubev, text="Cube Vis")
 
 
 
@@ -430,5 +434,19 @@ frm_grid.pack()
 box_list.pack()
 
 tab_parent.pack(expand=1, fill="both")
+
+
+## CUBEVIS TAB
+
+
+frame = Frame(tab_cubev, width=600, height=400)
+frame.pack()
+frame.place(anchor='center', relx=0.5, rely=0.5)
+
+img = ImageTk.PhotoImage(Image.open("cubevis.png"))
+
+label = Label(frame, image = img)
+label.pack()
+
 
 root.mainloop()
