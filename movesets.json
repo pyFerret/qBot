@@ -1,185 +1,185 @@
 {
-    "cross": {
-        "b": {
-            "2": {
+    "cross": { // 4 cross edges
+        "b": { // 12 places this cross edge can be
+            "2": { // 2 orientations
                 "1": "",
                 "2": "B L' U"
             },
-            "4": {
+            "4": { // 2 orientations
                 "1": "U",
                 "2": "L' B'"
             },
-            "6": {
+            "6": { // 2 orientations
                 "1": "U'",
                 "2": "R B"
             },
-            "8": {
+            "8": { // 2 orientations
                 "1": "U2",
                 "2": "F' L' U"
             },
-            "10": {
+            "10": { // 2 orientations
                 "1": "B'",
                 "2": "L U"
             },
-            "12": {
+            "12": { // 2 orientations
                 "1": "B",
                 "2": "R' U'"
             },
-            "15": {
+            "15": { // 2 orientations
                 "1": "L2 B'",
                 "2": "L' U"
             },
-            "17": {
+            "17": { // 2 orientations
                 "1": "R2 B",
                 "2": "R U'"
             },
-            "19": {
+            "19": { // 2 orientations
                 "1": "B2",
                 "2": "B R' U'"
             },
-            "21": {
+            "21": { // 2 orientations
                 "1": "L2 U",
                 "2": "L' B'"
             },
-            "23": {
+            "23": { // 2 orientations
                 "1": "R2 U'",
                 "2": "R B"
             },
-            "25": {
+            "25": { // 2 orientations
                 "1": "D2 B2",
                 "2": "F' R U'"
             }
         },
-        "d": {
-            "4": {
+        "d": { // 11 places this cross edge can be
+            "4": { // 2 orientations
                 "1": "",
                 "2": "U' F' U L'"
             },
-            "6": {
+            "6": { // 2 orientations
                 "1": "R' U2 R U2",
                 "2": "R' U' F' U"
             },
-            "8": {
+            "8": { // 2 orientations
                 "1": "F U' F' U",
                 "2": "F' L'"
             },
-            "10": {
+            "10": { // 2 orientations
                 "1": "L",
                 "2": "U B' U'"
             },
-            "12": {
+            "12": { // 2 orientations
                 "1": "U2 R' U2",
                 "2": "U B U'"
             },
-            "15": {
+            "15": { // 2 orientations
                 "1": "L'",
                 "2": "U' F U"
             },
-            "17": {
+            "17": { // 2 orientations
                 "1": "U2 R U2",
                 "2": "U' F' U"
             },
-            "19": {
+            "19": { // 2 orientations
                 "1": "U B2 U'",
                 "2": "D2 F L'"
             },
-            "21": {
+            "21": { // 2 orientations
                 "1": "L2",
                 "2": "L U B' U'"
             },
-            "23": {
+            "23": { // 2 orientations
                 "1": "U2 R2 U2",
                 "2": "D' F L'"
             },
-            "25": {
+            "25": { // 2 orientations
                 "1": "D' L2",
                 "2": "F L'"
             }
         },
-        "f": {
-            "6": {
+        "f": { // 10 places this cross edge can be
+            "6": { // 2 orientations
                 "1": "",
                 "2": "R' U F' U'"
             },
-            "8": {
+            "8": { // 2 orientations
                 "1": "U' R' U R",
                 "2": "F R"
             },
-            "10": {
+            "10": { // 2 orientations
                 "1": "U2 L U2",
                 "2": "U' B' U"
             },
-            "12": {
+            "12": { // 2 orientations
                 "1": "R'",
                 "2": "U' B U"
             },
-            "15": {
+            "15": { // 2 orientations
                 "1": "U2 L' U2",
                 "2": "U F U'"
             },
-            "17": {
+            "17": { // 2 orientations
                 "1": "R",
                 "2": "U F' U'"
             },
-            "19": {
+            "19": { // 2 orientations
                 "1": "D R2",
                 "2": "B R' B'"
             },
-            "21": {
+            "21": { // 2 orientations
                 "1": "D2 R2",
                 "2": "D F' R F"
             },
-            "23": {
+            "23": { // 2 orientations
                 "1": "R2",
                 "2": "R F D F' R2"
             },
-            "25": {
+            "25": { // 2 orientations
                 "1": "D R2",
                 "2": "F' R F"
             }
         },
-        "h": {
-            "8": {
+        "h": { // 9 places this cross edge can be
+            "8": { // 2 orientations
                 "1": "",
                 "2": "F U' R U"
             },
-            "10": {
+            "10": { // 2 orientations
                 "1": "U2 B' U2",
                 "2": "U L U'"
             },
-            "12": {
+            "12": { // 2 orientations
                 "1": "U2 B U2",
                 "2": "U' R' U"
             },
-            "15": {
+            "15": { // 2 orientations
                 "1": "F",
                 "2": "U L' U'"
             },
-            "17": {
+            "17": { // 2 orientations
                 "1": "F'",
                 "2": "U' R U"
             },
-            "19": {
+            "19": { // 2 orientations
                 "1": "D2 F2",
                 "2": "D' R F' R'"
             },
-            "21": {
+            "21": { // 2 orientations
                 "1": "D F2",
                 "2": "L' F L"
             },
-            "23": {
+            "23": { // 2 orientations
                 "1": "D' F2",
                 "2": "R F' R'"
             },
-            "25": {
+            "25": { // 2 orientations
                 "1": "F2",
                 "2": "F' U' R U"
             }
         }
     },
-    "f2l": {
-        "ja": {
-            "09": {
+    "f2l": { // 4 f2l pairs
+        "ja": { // 8 places * 2 ori that this pair's edge can be
+            "09": { // 8 places * 3 ori that this pair's corner can be
                 "00": "",
                 "10": "B D B' D' B D2 B' D' B D B'",
                 "20": "L' D' L D L' D2 L D L' D' L",
@@ -205,7 +205,7 @@
                 "49": "D' L' D L D2 L' D L",
                 "59": "D B D' B' D2 B D' B'"
             },
-            "19": {
+            "19": { // 8 places * 3 ori that this pair's corner can be
                 "00": "B' L B L' B D' B' D B D' B' D2 B D' B' ",
                 "10": "F L' F' D2 F L F' B D B' ",
                 "20": "B D' B' F L' F' D2 F L F' ",
@@ -215,52 +215,52 @@
                 "06": "L D L2 D' L D' B D B' ",
                 "16": "L D' L' D2 B D B' D L' D' L "
             },
-            "1b": {
+            "1b": { // 8 places * 3 ori that this pair's corner can be
                 "26": "B' D2 B L D L2 D2 L"
             },
-            "40": {
+            "40": { // 8 places * 3 ori that this pair's corner can be
                 "33": "D' R' D2 R B D' B'",
                 "41": "D' R' D' R D B D B' "
             }
         },
-        "lc": {
-            "48": {
+        "lc": { // 7 places * 2 ori that this pair's edge can be
+            "48": { // 7 places * 3 ori that this pair's corner can be
                 "06": "R D R' L D L' R D' R' D2 R D' R'",
                 "59": "D' R D2 R' ",
                 "53": "D' R D R' D2 R D' R' "
             },
-            "34": {
+            "34": { // 7 places * 3 ori that this pair's corner can be
                 "16": "F' D' F R D' R' "
             }
         },
-        "og": {
-            "1e": {
+        "og": { // 6 places * 2 ori that this pair's edge can be
+            "1e": { // 6 places * 3 ori that this pair's corner can be
                 "18": "R' D R D' L D' L' D F' D F"
             },
-            "48": {
+            "48": { // 6 places * 3 ori that this pair's corner can be
                 "41": "L D L' D L D L'"
             },
-            "0e": {
+            "0e": { // 6 places * 3 ori that this pair's corner can be
                 "06": ""
             },
-            "46": {
+            "46": { // 6 places * 3 ori that this pair's corner can be
                 "41": "D2 F' D2 F D F' D2 F"
             },
-            "40": {
+            "40": { // 6 places * 3 ori that this pair's corner can be
                 "31": "D' R' D' R D R' D' R D' F L' F' L "
             }
         },
-        "qi": {
-            "30": {
+        "qi": { // 5 places * 2 ori that this pair's edge can be
+            "30": { // 5 places * 3 ori that this pair's corner can be
                 "18": "F D F' D' F D2 F' D' F D F'"
             },
-            "34": {
+            "34": { // 5 places * 3 ori that this pair's corner can be
                 "31": "D2 R' D2 R D R' D' R "
             },
-            "44": {
+            "44": { // 5 places * 3 ori that this pair's corner can be
                 "37": "D F D2 F' D' F D F'"
             },
-            "48": {
+            "48": { // 5 places * 3 ori that this pair's corner can be
                 "28": "D F D F' D2 R' D R "
             }
         }

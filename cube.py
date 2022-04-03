@@ -1,114 +1,127 @@
-import binaryTranslation.bincubeconvert as bincubeconvert
+import binaryTranslation.bincubeconvert as bcc
 
 # This file contains the class that I use to dictate what a cube is
 # If you would like a new cube you can just make one with this class
 
 class Cube():
+    
+    # the virtual cube, in most files that it is accessed, 
+    # is held with the Green side facing and the White side 
+    # up. comments from this point on will be based on that.
+    
     def __init__(self, sort, scramble):
-        self.cube = bincubeconvert.formCube(sort, scramble)
-        self.nRL = ["b", "h", "s", "y"]
-        self.nUD = ["j", "l", "o", "q"]
-        self.nFB = ["d", "f", "u", "w"]
+        self.cube = bcc.formCube(sort, scramble) # this is the actual virtual cube. 
+                                                 # the rest of the file is manipulation 
+                                                 # of said actual virtual cube
+        self.nRL = ["b", "h", "s", "y"] # nRL stands for Not Right or Left
+        self.nUD = ["j", "l", "o", "q"] # nUD stands for Not Up or Down
+        self.nFB = ["d", "f", "u", "w"] # nFB stands for Not Front or Back
+        # these three lists are used as lists of the edges not found on two opposite sides (like not right or left side edges)
     
-    def R(self, _inverted = False):
-        def pieceChange(x): self.cube[i][1] = x
-        def oriChange(_way): self.cube[i][0] = self.CornerOCW(self.cube[i][0]) if _way == "OCW" else self.CornerOCCW(self.cube[i][0])
-        def oriEdge(): self.cube[i][0] = self.edgeCheck("R", self.cube[i][0], i)
-        if _inverted: # if its inverted it will preself.cube the inverse move ( R -> R')
-            for i in self.cube:
-                i = str(i)
+    def pieceChange(self, p, x): # this will basically change where a piece is.
+        self.cube[p][1] = x      # its probably not the best way to do it but i dont really care
+
+    def oriCorner(self, p, w): # this will change the orientation of a corner
+        self.cube[p][0] = self.CornerOCW(self.cube[p][0]) if w == "OCW" else self.CornerOCCW(self.cube[p][0])
     
-                piece = self.cube[i][1]
+    def oriEdge(self, p, s): # this will change the orientation of an edge
+        self.cube[p][0] = self.edgeCheck(s, self.cube[p][0], p)
     
-                if piece == 9:
-                    pieceChange(26)
-                    oriChange("OCW")
+    def R(self, _inverted = False): # this function will turn the right (red) side clockwise (unless inverted is true)
+        if _inverted: # if its inverted it will do the inverse move (R -> R')
+            for i in self.cube: # im looking at this now and i feel like these two lines
+                i = str(i)      # could be a lot better if i didnt do the second one, 
+                                # and instead made it a separate variable. i think i
+                                # will change it in the future but i dont have time rn
+    
+                piece = self.cube[i][1] # the location of the piece being dealt with currently
+    
+                if piece == 9: # the next four ifs move the corners around the right side
+                    self.pieceChange(i, 26)
+                    self.oriCorner(i, "OCW")
                 elif piece == 3:
-                    pieceChange(9)
-                    oriChange("OCCW")
+                    self.pieceChange(i, 9)
+                    self.oriCorner(i, "OCCW")
                 elif piece == 20:
-                    pieceChange(3)
-                    oriChange("OCW")
+                    self.pieceChange(i, 3)
+                    self.oriCorner(i, "OCW")
                 elif piece == 26:
-                    pieceChange(20)
-                    oriChange("OCCW")
-                elif piece == 6:
-                    pieceChange(17)
-                    oriEdge()
+                    self.pieceChange(i, 20)
+                    self.oriCorner(i, "OCCW")
+                elif piece == 6: # the next four ifs move the edges around the right side
+                    self.pieceChange(i, 17)
+                    self.oriEdge(i, "R")
                 elif piece == 12:
-                    pieceChange(6)
-                    oriEdge()
+                    self.pieceChange(i, 6)
+                    self.oriEdge(i, "R")
                 elif piece == 23:
-                    pieceChange(12)
-                    oriEdge()
+                    self.pieceChange(i, 12)
+                    self.oriEdge(i, "R")
                 elif piece == 17:
-                    pieceChange(23)
-                    oriEdge()
+                    self.pieceChange(i, 23)
+                    self.oriEdge(i, "R")
         else:
             for i in self.cube:
                 i = str(i)
     
                 piece = self.cube[i][1]
     
-                if piece == 9:
-                    pieceChange(3)
-                    oriChange("OCW")
+                if piece == 9: # the next four ifs move the corners around the right side
+                    self.pieceChange(i, 3)
+                    self.oriCorner(i, "OCW")
                 elif piece == 3:
-                    pieceChange(20)
-                    oriChange("OCCW")
+                    self.pieceChange(i, 20)
+                    self.oriCorner(i, "OCCW")
                 elif piece == 20:
-                    pieceChange(26)
-                    oriChange("OCW")
+                    self.pieceChange(i, 26)
+                    self.oriCorner(i, "OCW")
                 elif piece == 26:
-                    pieceChange(9)
-                    oriChange("OCCW")
-                elif piece == 6:
-                    pieceChange(12)
-                    oriEdge()
+                    self.pieceChange(i, 9)
+                    self.oriCorner(i, "OCCW")
+                elif piece == 6: # the next four ifs move the edges around the right side
+                    self.pieceChange(i, 12)
+                    self.oriEdge(i, "R")
                 elif piece == 12:
-                    pieceChange(23)
-                    oriEdge()
+                    self.pieceChange(i, 23)
+                    self.oriEdge(i, "R")
                 elif piece == 23:
-                    pieceChange(17)
-                    oriEdge()
+                    self.pieceChange(i, 17)
+                    self.oriEdge(i, "R")
                 elif piece == 17:
-                    pieceChange(6)
-                    oriEdge()
+                    self.pieceChange(i, 6)
+                    self.oriEdge(i, "R")
     
-    def L(self, _inverted = False):
-        def pieceChange(x): self.cube[i][1] = x
-        def oriChange(_way): self.cube[i][0] = self.CornerOCW(self.cube[i][0]) if _way == "OCW" else self.CornerOCCW(self.cube[i][0])
-        def oriEdge(): self.cube[i][0] = self.edgeCheck("L", self.cube[i][0], i)
-        if _inverted: # if its inverted it will preself.cube the inverse move ( L -> L')
+    def L(self, _inverted = False): # this function will turn the left (orange) side clockwise (unless inverted is true)
+        if _inverted: # if its inverted it will do the inverse move (L -> L')
             for i in self.cube:
                 i = str(i)
     
                 piece = self.cube[i][1]
     
                 if piece == 1:
-                    pieceChange(18)
-                    oriChange("OCW")
+                    self.pieceChange(i, 18)
+                    self.oriCorner(i, "OCW")
                 elif piece == 18:
-                    pieceChange(24)
-                    oriChange("OCCW")
+                    self.pieceChange(i, 24)
+                    self.oriCorner(i, "OCCW")
                 elif piece == 24:
-                    pieceChange(7)
-                    oriChange("OCW")
+                    self.pieceChange(i, 7)
+                    self.oriCorner(i, "OCW")
                 elif piece == 7:
-                    pieceChange(1)
-                    oriChange("OCCW")
+                    self.pieceChange(i, 1)
+                    self.oriCorner(i, "OCCW")
                 elif piece == 4:
-                    pieceChange(10)
-                    oriEdge()
+                    self.pieceChange(i, 10)
+                    self.oriEdge(i, "L")
                 elif piece == 10:
-                    pieceChange(21)
-                    oriEdge()
+                    self.pieceChange(i, 21)
+                    self.oriEdge(i, "L")
                 elif piece == 21:
-                    pieceChange(15)
-                    oriEdge()
+                    self.pieceChange(i, 15)
+                    self.oriEdge(i, "L")
                 elif piece == 15:
-                    pieceChange(4)
-                    oriEdge()
+                    self.pieceChange(i, 4)
+                    self.oriEdge(i, "L")
         else:
             for i in self.cube:
                 i = str(i)
@@ -116,60 +129,57 @@ class Cube():
                 piece = self.cube[i][1]
     
                 if piece == 1:
-                    pieceChange(7)
-                    oriChange("OCW")
+                    self.pieceChange(i, 7)
+                    self.oriCorner(i, "OCW")
                 elif piece == 7:
-                    pieceChange(24)
-                    oriChange("OCCW")
+                    self.pieceChange(i, 24)
+                    self.oriCorner(i, "OCCW")
                 elif piece == 24:
-                    pieceChange(18)
-                    oriChange("OCW")
+                    self.pieceChange(i, 18)
+                    self.oriCorner(i, "OCW")
                 elif piece == 18:
-                    pieceChange(1)
-                    oriChange("OCCW")
+                    self.pieceChange(i, 1)
+                    self.oriCorner(i, "OCCW")
                 elif piece == 4:
-                    pieceChange(15)
-                    oriEdge()
+                    self.pieceChange(i, 15)
+                    self.oriEdge(i, "L")
                 elif piece == 15:
-                    pieceChange(21)
-                    oriEdge()
+                    self.pieceChange(i, 21)
+                    self.oriEdge(i, "L")
                 elif piece == 21:
-                    pieceChange(10)
-                    oriEdge()
+                    self.pieceChange(i, 10)
+                    self.oriEdge(i, "L")
                 elif piece == 10:
-                    pieceChange(4)
-                    oriEdge()
+                    self.pieceChange(i, 4)
+                    self.oriEdge(i, "L")
     
-    def U(self, _inverted = False):
-        def pieceChange(x): self.cube[i][1] = x
-        def oriChange(_way): self.cube[i][0] = self.CornerOCW(self.cube[i][0]) if _way == "OCW" else self.CornerOCCW(self.cube[i][0])
-        def oriEdge(): self.cube[i][0] = self.edgeCheck("U", self.cube[i][0], i)
-        if _inverted == False: # this one has to be false because i fucked up and didn't feel like switching all of the numbers whoops
+    def U(self, _inverted = False): # this function will turn the up (white) side clockwise (unless inverted is true)
+        if _inverted: # if its inverted it will do the inverse move (U -> U')
             for i in self.cube:
                 i = str(i)
     
                 piece = self.cube[i][1]
     
                 if piece == 9:
-                    pieceChange(7)
-                elif piece == 7:
-                    pieceChange(1)
-                elif piece == 1:
-                    pieceChange(3)
+                    self.pieceChange(i, 3)
                 elif piece == 3:
-                    pieceChange(9)
+                    self.pieceChange(i, 1)
+                elif piece == 1:
+                    self.pieceChange(i, 7)
+                elif piece == 7:
+                    self.pieceChange(i, 9)
                 elif piece == 6:
-                    pieceChange(8)
-                    oriEdge()
-                elif piece == 8:
-                    pieceChange(4)
-                    oriEdge()
-                elif piece == 4:
-                    pieceChange(2)
-                    oriEdge()
+                    self.pieceChange(i, 2)
+                    self.oriEdge(i, "U")
                 elif piece == 2:
-                    pieceChange(6)
-                    oriEdge()
+                    self.pieceChange(i, 4)
+                    self.oriEdge(i, "U")
+                elif piece == 4:
+                    self.pieceChange(i, 8)
+                    self.oriEdge(i, "U")
+                elif piece == 8:
+                    self.pieceChange(i, 6)
+                    self.oriEdge(i, "U")
         else:
             for i in self.cube:
                 i = str(i)
@@ -177,56 +187,53 @@ class Cube():
                 piece = self.cube[i][1]
     
                 if piece == 9:
-                    pieceChange(3)
-                elif piece == 3:
-                    pieceChange(1)
-                elif piece == 1:
-                    pieceChange(7)
+                    self.pieceChange(i, 7)
                 elif piece == 7:
-                    pieceChange(9)
+                    self.pieceChange(i, 1)
+                elif piece == 1:
+                    self.pieceChange(i, 3)
+                elif piece == 3:
+                    self.pieceChange(i, 9)
                 elif piece == 6:
-                    pieceChange(2)
-                    oriEdge()
-                elif piece == 2:
-                    pieceChange(4)
-                    oriEdge()
-                elif piece == 4:
-                    pieceChange(8)
-                    oriEdge()
+                    self.pieceChange(i, 8)
+                    self.oriEdge(i, "U")
                 elif piece == 8:
-                    pieceChange(6)
-                    oriEdge()
+                    self.pieceChange(i, 4)
+                    self.oriEdge(i, "U")
+                elif piece == 4:
+                    self.pieceChange(i, 2)
+                    self.oriEdge(i, "U")
+                elif piece == 2:
+                    self.pieceChange(i, 6)
+                    self.oriEdge(i, "U")
     
-    def D(self, _inverted = False):
-        def pieceChange(x): self.cube[i][1] = x
-        def oriChange(_way): self.cube[i][0] = self.CornerOCW(self.cube[i][0]) if _way == "OCW" else self.CornerOCCW(self.cube[i][0])
-        def oriEdge(): self.cube[i][0] = self.edgeCheck("D", self.cube[i][0], i)
-        if _inverted: # if its inverted it will preself.cube the inverse move ( D -> D')
+    def D(self, _inverted = False): # this function will turn the down (yellow) side clockwise (unless inverted is true)
+        if _inverted: # if its inverted it will do the inverse move (D -> D')
             for i in self.cube:
                 i = str(i)
     
                 piece = self.cube[i][1]
     
                 if piece == 18:
-                    pieceChange(20)
+                    self.pieceChange(i, 20)
                 elif piece == 20:
-                    pieceChange(26)
+                    self.pieceChange(i, 26)
                 elif piece == 26:
-                    pieceChange(24)
+                    self.pieceChange(i, 24)
                 elif piece == 24:
-                    pieceChange(18)
+                    self.pieceChange(i, 18)
                 elif piece == 19:
-                    pieceChange(23)
-                    oriEdge()
+                    self.pieceChange(i, 23)
+                    self.oriEdge(i, "D")
                 elif piece == 23:
-                    pieceChange(25)
-                    oriEdge()
+                    self.pieceChange(i, 25)
+                    self.oriEdge(i, "D")
                 elif piece == 25:
-                    pieceChange(21)
-                    oriEdge()
+                    self.pieceChange(i, 21)
+                    self.oriEdge(i, "D")
                 elif piece == 21:
-                    pieceChange(19)
-                    oriEdge()
+                    self.pieceChange(i, 19)
+                    self.oriEdge(i, "D")
         else:
             for i in self.cube:
                 i = str(i)
@@ -234,60 +241,57 @@ class Cube():
                 piece = self.cube[i][1]
     
                 if piece == 18:
-                    pieceChange(24)
+                    self.pieceChange(i, 24)
                 elif piece == 24:
-                    pieceChange(26)
+                    self.pieceChange(i, 26)
                 elif piece == 26:
-                    pieceChange(20)
+                    self.pieceChange(i, 20)
                 elif piece == 20:
-                    pieceChange(18)
+                    self.pieceChange(i, 18)
                 elif piece == 19:
-                    pieceChange(21)
-                    oriEdge()
+                    self.pieceChange(i, 21)
+                    self.oriEdge(i, "D")
                 elif piece == 21:
-                    pieceChange(25)
-                    oriEdge()
+                    self.pieceChange(i, 25)
+                    self.oriEdge(i, "D")
                 elif piece == 25:
-                    pieceChange(23)
-                    oriEdge()
+                    self.pieceChange(i, 23)
+                    self.oriEdge(i, "D")
                 elif piece == 23:
-                    pieceChange(19 )
-                    oriEdge()
+                    self.pieceChange(i, 19 )
+                    self.oriEdge(i, "D")
     
-    def F(self, _inverted = False):
-        def pieceChange(x): self.cube[i][1] = x
-        def oriChange(_way): self.cube[i][0] = self.CornerOCW(self.cube[i][0]) if _way == "OCW" else self.CornerOCCW(self.cube[i][0])
-        def oriEdge(): self.cube[i][0] = self.edgeCheck("F", self.cube[i][0], i)
-        if _inverted: # if its inverted it will preself.cube the inverse move ( F -> F')
+    def F(self, _inverted = False): # this function will turn the front (green) side clockwise (unless inverted is true)
+        if _inverted: # if its inverted it will do the inverse move (F -> F')
             for i in self.cube:
                 i = str(i)
     
                 piece = self.cube[i][1]
     
                 if piece == 9:
-                    pieceChange(7)
-                    oriChange("OCCW")
+                    self.pieceChange(i, 7)
+                    self.oriCorner(i, "OCCW")
                 elif piece == 7:
-                    pieceChange(24)
-                    oriChange("OCW")
+                    self.pieceChange(i, 24)
+                    self.oriCorner(i, "OCW")
                 elif piece == 24:
-                    pieceChange(26)
-                    oriChange("OCCW")
+                    self.pieceChange(i, 26)
+                    self.oriCorner(i, "OCCW")
                 elif piece == 26:
-                    pieceChange(9)
-                    oriChange("OCW")
+                    self.pieceChange(i, 9)
+                    self.oriCorner(i, "OCW")
                 elif piece == 8:
-                    pieceChange(15)
-                    oriEdge()
+                    self.pieceChange(i, 15)
+                    self.oriEdge(i, "F")
                 elif piece == 15:
-                    pieceChange(25)
-                    oriEdge()
+                    self.pieceChange(i, 25)
+                    self.oriEdge(i, "F")
                 elif piece == 25:
-                    pieceChange(17)
-                    oriEdge()
+                    self.pieceChange(i, 17)
+                    self.oriEdge(i, "F")
                 elif piece == 17:
-                    pieceChange(8)
-                    oriEdge()
+                    self.pieceChange(i, 8)
+                    self.oriEdge(i, "F")
         else:
             for i in self.cube:
                 i = str(i)
@@ -295,64 +299,61 @@ class Cube():
                 piece = self.cube[i][1]
     
                 if piece == 9:
-                    pieceChange(26)
-                    oriChange("OCCW")
+                    self.pieceChange(i, 26)
+                    self.oriCorner(i, "OCCW")
                 elif piece == 26:
-                    pieceChange(24)
-                    oriChange("OCW")
+                    self.pieceChange(i, 24)
+                    self.oriCorner(i, "OCW")
                 elif piece == 24:
-                    pieceChange(7)
-                    oriChange("OCCW")
+                    self.pieceChange(i, 7)
+                    self.oriCorner(i, "OCCW")
                 elif piece == 7:
-                    pieceChange(9)
-                    oriChange("OCW")
+                    self.pieceChange(i, 9)
+                    self.oriCorner(i, "OCW")
                 elif piece == 8:
-                    pieceChange(17)
-                    oriEdge()
+                    self.pieceChange(i, 17)
+                    self.oriEdge(i, "F")
                 elif piece == 17:
-                    pieceChange(25)
-                    oriEdge()
+                    self.pieceChange(i, 25)
+                    self.oriEdge(i, "F")
                 elif piece == 25:
-                    pieceChange(15)
-                    oriEdge()
+                    self.pieceChange(i, 15)
+                    self.oriEdge(i, "F")
                 elif piece == 15:
-                    pieceChange(8)
-                    oriEdge()
+                    self.pieceChange(i, 8)
+                    self.oriEdge(i, "F")
     
-    def B(self, _inverted = False):
-        def pieceChange(x): self.cube[i][1] = x
-        def oriChange(_way): self.cube[i][0] = self.CornerOCW(self.cube[i][0]) if _way == "OCW" else self.CornerOCCW(self.cube[i][0])
-        def oriEdge(): self.cube[i][0] = self.edgeCheck("B", self.cube[i][0], i)
-        if _inverted: # if its inverted it will preself.cube the inverse move ( B -> B')
+    def B(self, _inverted = False): # this function will turn the back (blue) side clockwise (unless inverted is true)
+        if _inverted: # if its inverted it will do the inverse move (B -> B')
             for i in self.cube:
                 i = str(i)
     
                 piece = self.cube[i][1]
     
                 if piece == 1:
-                    pieceChange(3)
-                    oriChange("OCCW")
+                    self.pieceChange(i, 3)
+                    self.oriCorner(i, "OCCW")
                 elif piece == 3:
-                    pieceChange(20)
-                    oriChange("OCW")
+                    self.pieceChange(i, 20)
+                    self.oriCorner(i, "OCW")
                 elif piece == 20:
-                    pieceChange(18)
-                    oriChange("OCCW")
+                    self.pieceChange(i, 18)
+                    self.oriCorner(i, "OCCW")
                 elif piece == 18:
-                    pieceChange(1)
-                    oriChange("OCW")
+                    self.pieceChange(i, 1)
+                    self.oriCorner(i, "OCW")
                 elif piece == 2:
-                    pieceChange(12)
-                    oriEdge()
+                    self.pieceChange(i, 12)
+                    self.oriEdge(i, "B")
                 elif piece == 12:
-                    pieceChange(19)
-                    oriEdge()
+                    self.pieceChange(i, 19)
+                    self.oriEdge(i, "B")
                 elif piece == 19:
-                    pieceChange(10)
-                    oriEdge()
+                    self.pieceChange(i, 10)
+                    self.oriEdge(i, "B")
                 elif piece == 10:
-                    pieceChange(2)
-                    oriEdge()
+                    self.pieceChange(i, 2)
+                    self.oriEdge(i, "B")
         else:
             for i in self.cube:
                 i = str(i)
@@ -360,29 +361,29 @@ class Cube():
                 piece = self.cube[i][1]
     
                 if piece == 1:
-                    pieceChange(18)
-                    oriChange("OCCW")
+                    self.pieceChange(i, 18)
+                    self.oriCorner(i, "OCCW")
                 elif piece == 18:
-                    pieceChange(20)
-                    oriChange("OCW")
+                    self.pieceChange(i, 20)
+                    self.oriCorner(i, "OCW")
                 elif piece == 20:
-                    pieceChange(3)
-                    oriChange("OCCW")
+                    self.pieceChange(i, 3)
+                    self.oriCorner(i, "OCCW")
                 elif piece == 3:
-                    pieceChange(1)
-                    oriChange("OCW")
+                    self.pieceChange(i, 1)
+                    self.oriCorner(i, "OCW")
                 elif piece == 2:
-                    pieceChange(10)
-                    oriEdge()
+                    self.pieceChange(i, 10)
+                    self.oriEdge(i, "B")
                 elif piece == 10:
-                    pieceChange(19)
-                    oriEdge()
+                    self.pieceChange(i, 19)
+                    self.oriEdge(i, "B")
                 elif piece == 19:
-                    pieceChange(12)
-                    oriEdge()
+                    self.pieceChange(i, 12)
+                    self.oriEdge(i, "B")
                 elif piece == 12:
-                    pieceChange(2)
-                    oriEdge()
+                    self.pieceChange(i, 2)
+                    self.oriEdge(i, "B")
     
     def CornerOCCW(self, _co):
         _co-=1
@@ -416,9 +417,9 @@ class Cube():
             return 2
         elif _ori == 2:
             return 1
+        else: 
+            print("something happened when switching orientation")
             
 # 420 lines lmfao blaze it
             
-        else: 
-            print("something happened when switching orientation")
             return 
