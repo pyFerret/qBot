@@ -44,19 +44,19 @@ Here you will see a variety of buttons and boxes, and I will now go through all 
 
 ## to-do list
 #### solve the cube
-     - [ ] finish putting in f2l cases
-     - [ ] last layer
-       - [ ] oll
-         - [ ] recognition of oll
-         - [ ] solving of oll
-       - [ ] pll
-         - [ ] recognition of pll
-         - [ ] solving of pll
-       - [ ] auf
+- [ ] finish putting in f2l cases
+- [ ] last layer
+  - [ ] oll
+    - [ ] recognition of oll
+    - [ ] solving of oll
+  - [ ] pll
+    - [ ] recognition of pll
+    - [ ] solving of pll
+  - [ ] auf
 #### real boy
-     - [ ] create virtual cube out of real one
+- [ ] create virtual cube out of real one
 #### optimization
-     - [ ] go through comments and put specifics here
+- [ ] go through comments and put specifics here
 #### readme
-     - [ ] debug tab
-     - [ ] how to help
+- [ ] debug tab
+- [ ] how to help
