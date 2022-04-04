@@ -25,7 +25,7 @@ Here you will see a variety of buttons and boxes, and I will now go through all 
 `full solve`; this button will create (and execute to the virtual cube) the moves to fully solve the cube (currently only solves through f2l in some cases as i have not put in all f2l cases and i have not figured out how to detect oll and pll yet)
 
 `scramble`; this button will scramble the virtual cube based on the `input` text box.
-- input options; `preset [PRESET_NAME]` will scramble the cube to a preset scramble in the various scramble sample folder; `[MOVES]` will scramble the cube using the moves in `input` (format is uppercase letter, apostrophe for inverted or 2 for double turn, and spaces between each turn. EX: `R' D2 R`); no command will do nothing
+- input options; `preset [PRESET_NAME]` will scramble the cube to a preset scramble in the scrambles folder; `[MOVES]` will scramble the cube using the moves in `input` (format is uppercase letter, apostrophe for inverted or 2 for double turn, and spaces between each turn. EX: `R' D2 R`); no command will do nothing
 
 `cross`; this button will solve the cross of whatever scramble is given, as long as the scramble is valid (all four of the cross pieces exist)
 
