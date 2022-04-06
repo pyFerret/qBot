@@ -1,4 +1,3 @@
-
 # This is a tkinter window that i created in 
 # order to help put in commands on the fly 
 # and put in algorithms without having to 
@@ -439,16 +438,19 @@ tab_parent.pack(expand=1, fill="both")
 ## CUBEVIS TAB
 
 
-frame = Frame(tab_cubev)
-frame.pack()
-frame.place(anchor='center', relx=0.5, rely=0.5)
-
+image = colorconverter(solve.Cube.cube)
 img = ImageTk.PhotoImage(Image.open("assets/visualizer/cubevis.png").resize((600, 450), resample=Image.NEAREST))
 
-label = Label(frame, image = img)
-label.pack()
+def updatecube():
+    image.update()
+    img = ImageTk.PhotoImage(Image.open("assets/visualizer/cubevis.png").resize((600, 450), resample=Image.NEAREST))
+    lbl_img.configure(image=img)
+    lbl_img.image = img
 
+lbl_img = Label(tab_cubev, image = img)
+btn_update = Button(tab_cubev, text="update image", command=updatecube)
+
+lbl_img.pack()
+btn_update.pack()
 
 root.mainloop()
-image.initialize()
-image.create()
