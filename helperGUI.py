@@ -276,6 +276,8 @@ def box():
     elif txt_enter.get() == "moves":
         box_list.insert(END, solve.fullmoves)
         box_nl()
+    elif txt_enter.get().split()[0] == "binary":
+        formBin(txt_enter.get().split()[1], solve.Cube.cube)
     else: 
         for i in solve.Cube.cube:
             box_list.insert(END, str(solve.Cube.cube[i]))

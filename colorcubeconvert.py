@@ -74,14 +74,14 @@ class colorconverter:
         for i in c:
             if c[i][1] == 1:
                 self.draw(0, 3,  self.piececolors[i][(c[i][0]-1) % 3])
-                self.draw(3, 0,  self.piececolors[i][(c[i][0]-0) % 3])
+                self.draw(3, 0,  self.piececolors[i][(c[i][0]+0) % 3])
                 self.draw(3, 11, self.piececolors[i][(c[i][0]+1) % 3])
             elif c[i][1] == 2:
                 self.draw(0, 4,  self.piececolors[i][(c[i][0]-1) % 2])
                 self.draw(3, 10, self.piececolors[i][(c[i][0]-0) % 2])
             elif c[i][1] == 3:
                 self.draw(0, 5,  self.piececolors[i][(c[i][0]-1) % 3])
-                self.draw(3, 9,  self.piececolors[i][(c[i][0]-0) % 3])
+                self.draw(3, 9,  self.piececolors[i][(c[i][0]+0) % 3])
                 self.draw(3, 8,  self.piececolors[i][(c[i][0]+1) % 3])
             elif c[i][1] == 4:
                 self.draw(1, 3,  self.piececolors[i][(c[i][0]-1) % 2])
