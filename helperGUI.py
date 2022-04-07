@@ -236,12 +236,12 @@ btn_clr.grid (row=1, column=3, padx=1, pady=1, sticky="nesw")
 
 
 
-solve = Solve(cube.Cube(True, "scrambles/cube.bin"))
+solve = Solve(cube.Cube(True, "scrambles/cube.cube"))
 
 def scmbl():
     scramble = txt_enter.get().split()
     if  scramble[0] == "preset":
-        scramble[1] = "scrambles/" + scramble[1] + ".bin"
+        scramble[1] = "scrambles/" + scramble[1] + ".cube"
         solve.Cube = cube.Cube(True, scramble[1])
     else:
         solve.moves = txt_enter.get()
