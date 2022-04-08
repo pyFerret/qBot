@@ -1,5 +1,5 @@
 
 *.pyc
 .vscode/launch.json
-assets/visualizer
-scrambles
+assets/visualizer/cubevis.png
+*.cube
