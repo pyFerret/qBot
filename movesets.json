@@ -264,5 +264,17 @@
                 "28": "D F D F' D2 R' D R "
             }
         }
+    },
+    "oll": {
+        "dot": {
+            "car": "",
+            "submarine": "",
+            "sune": "",
+            "antisune": "",
+            "headlights": "",
+            "fish": "",
+            "diag": "",
+            "full": ""
+        }
     }
 }
