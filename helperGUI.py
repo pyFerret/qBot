@@ -20,18 +20,16 @@ tab_parent = ttk.Notebook(root)
 
 tab_solve = ttk.Frame(tab_parent)
 tab_debug = ttk.Frame(tab_parent)
+tab_cubro = ttk.Frame(tab_parent)
 tab_cubev = ttk.Frame(tab_parent)
 
 tab_parent.add(tab_solve, text="Solve")
 tab_parent.add(tab_debug, text="Debug")
+tab_parent.add(tab_cubro, text="Rotate")
 tab_parent.add(tab_cubev, text="Cube Vis")
 
 
-
-
 ## DEBUG TAB
-
-
 
 
 with open("movesets.json","r") as file:
@@ -229,14 +227,10 @@ btn_delm.grid(row=0, column=3, padx=1, pady=1, sticky="nesw")
 btn_clr.grid (row=1, column=3, padx=1, pady=1, sticky="nesw")
 
 
-
-
 ## SOLVE TAB
 
 
-
-
-solve = Solve(cube.Cube(True, "scrambles/cube.cube"))
+solve = Solve(cube.Cube(True, "scrambles/solved.cube"))
 
 def scmbl():
     scramble = txt_enter.get().split()
@@ -406,7 +400,7 @@ lbl_enter = Label (frm_grid, text="put input to any command here",   )
 btn_scmbl = Button(frm_grid, text="scramble",   command=scmbl,       width=30)
 btn_cross = Button(frm_grid, text="cross",      command=solve.cross, )
 btn_ftwol = Button(frm_grid, text="f2l",        command=ftwol,       )
-btn_print = Button(frm_grid, text="list",       command=box,       )
+btn_print = Button(frm_grid, text="list",       command=box,         )
 btn_clear = Button(frm_grid, text="clear",      command=clear,       )
 btn_full  = Button(frm_grid, text="full solve", command=fullSolve,   )
 btn_oll   = Button(frm_last, text="oll",        command=oll,         width=10)
@@ -421,10 +415,10 @@ btn_cross.grid(row=1, column=1, padx=1, pady=1, sticky="nesw")
 btn_ftwol.grid(row=2, column=1, padx=1, pady=1, sticky="nesw")
 btn_print.grid(row=2, column=0, padx=1, pady=1, sticky="nesw")
 btn_clear.grid(row=3, column=0, padx=1, pady=1, sticky="nesw")
+btn_full.grid (row=4, column=0, padx=1, pady=1, sticky="nesw")
 
 # 420 lines lmfao blaze it
 
-btn_full.grid (row=4, column=0, padx=1, pady=1, sticky="nesw")
 frm_last.grid (row=3, column=1, padx=1, pady=1, sticky="nesw")
 btn_oll.grid  (row=0, column=0, padx=1, pady=1, sticky="nesw")
 btn_pll.grid  (row=0, column=1, padx=1, pady=1, sticky="nesw")
@@ -437,6 +431,50 @@ box_list.pack()
 tab_parent.pack(expand=1, fill="both")
 
 
+## ROTATE TAB
+
+
+def rotate(rotateDir):
+    rotate_input = txt_rotateInput.get()
+    if rotateDir == "X":
+        pass
+
+frm_rotateCube = Frame(tab_cubro)
+frm_rotateIO = Frame(tab_cubro)
+
+frm_rotateButtons = Frame(frm_rotateCube)
+
+btn_xn = Button(frm_rotateButtons, text="X",  width=3)
+btn_xi = Button(frm_rotateButtons, text="X'", width=3)
+btn_yn = Button(frm_rotateButtons, text="Y",  width=3)
+btn_yi = Button(frm_rotateButtons, text="Y'", width=3)
+btn_zn = Button(frm_rotateButtons, text="Z",  width=3)
+btn_zi = Button(frm_rotateButtons, text="Z'", width=3)
+
+btn_xn.grid(column=0, row=0, padx=1, pady=1, sticky="nesw")
+btn_xi.grid(column=1, row=0, padx=1, pady=1, sticky="nesw")
+btn_yn.grid(column=0, row=1, padx=1, pady=1, sticky="nesw")
+btn_yi.grid(column=1, row=1, padx=1, pady=1, sticky="nesw")
+btn_zn.grid(column=0, row=2, padx=1, pady=1, sticky="nesw")
+btn_zi.grid(column=1, row=2, padx=1, pady=1, sticky="nesw")
+
+frm_rotateButtons.pack()
+
+btn_rotateDelete = Button(frm_rotateCube, text="Delete", width=15)
+
+btn_rotateDelete.pack()
+
+frm_rotateCube.pack()
+
+lbl_rotateInput = Label(frm_rotateIO, text="input moves to rotate here")
+txt_rotateInput = Entry(frm_rotateIO, width=25)
+
+lbl_rotateInput.grid(column=0, row=0, padx=1, pady=2, sticky="nesw")
+txt_rotateInput.grid(column=0, row=1, padx=1, pady=2, sticky="nesw")
+
+frm_rotateIO.pack(pady=5)
+
+"""
 ## CUBEVIS TAB
 
 
@@ -454,5 +492,5 @@ btn_update = Button(tab_cubev, text="update image", command=updatecube)
 
 lbl_img.pack()
 btn_update.pack()
-
+"""
 root.mainloop()
