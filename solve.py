@@ -75,45 +75,33 @@ class Solve:
 
     def execute(self): # execute current moves in virtual cube 
         for i in self.moves.split():
-            if i == "R":
-                self.Cube.R()
-            elif i == "R'":
-                self.Cube.R(True)
+            if i == "R":self.Cube.R()
+            elif i == "R'":self.Cube.R(True)
             elif i == "R2":
                 self.Cube.R()
                 self.Cube.R()
-            elif i == "L":
-                self.Cube.L()
-            elif i == "L'":
-                self.Cube.L(True)
+            elif i == "L":self.Cube.L()
+            elif i == "L'":self.Cube.L(True)
             elif i == "L2":
                 self.Cube.L()
                 self.Cube.L()
-            elif i == "U":
-                self.Cube.U()
-            elif i == "U'":
-                self.Cube.U(True)
+            elif i == "U":self.Cube.U()
+            elif i == "U'":self.Cube.U(True)
             elif i == "U2":
                 self.Cube.U()
                 self.Cube.U()
-            elif i == "D":
-                self.Cube.D()
-            elif i == "D'":
-                self.Cube.D(True)
+            elif i == "D":self.Cube.D()
+            elif i == "D'":self.Cube.D(True)
             elif i == "D2":
                 self.Cube.D()
                 self.Cube.D()
-            elif i == "F":
-                self.Cube.F()
-            elif i == "F'":
-                self.Cube.F(True)
+            elif i == "F":self.Cube.F()
+            elif i == "F'":self.Cube.F(True)
             elif i == "F2":
                 self.Cube.F()
                 self.Cube.F()
-            elif i == "B":
-                self.Cube.B()
-            elif i == "B'":
-                self.Cube.B(True)
+            elif i == "B":self.Cube.B()
+            elif i == "B'":self.Cube.B(True)
             elif i == "B2":
                 self.Cube.B()
                 self.Cube.B()
