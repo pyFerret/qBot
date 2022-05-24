@@ -416,10 +416,10 @@ class Cube():
         if _ori == 1:
             return 2
         elif _ori == 2:
-            return 1
-        else: 
-            print("something happened when switching orientation")
             
 # 420 lines lmfao blaze it
             
+            return 1
+        else: 
+            print("something happened when switching orientation")
             return 
