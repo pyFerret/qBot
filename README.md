@@ -29,7 +29,7 @@ Here you will see a variety of buttons and boxes, and I will now go through all 
 
 `cross`; this button will solve the cross of whatever scramble is given, as long as the scramble is valid (all four of the cross pieces exist)
 
-`f2l`; this button will solve f2l(first 2 layers) pairs whether or not the cross has been solved
+`f2l`; this button will solve f2l(first 2 layers) pairs whether the cross has been solved or not
 - input options; `pair [PAIR_NUMBER]` will solve a specific pair number (1-4); no command will solve all 4
 
 `oll`; this button will (eventually) solve oll (orientation of the last layer)
@@ -42,28 +42,8 @@ Here you will see a variety of buttons and boxes, and I will now go through all 
 
 ---
 
-## to-do list
-#### solve the cube
-- [ ] finish putting in f2l cases
-- [ ] last layer
-  - [ ] oll
-    - [ ] recognition of oll
-    - [ ] solving of oll
-  - [ ] pll
-    - [ ] recognition of pll
-    - [ ] solving of pll
-  - [ ] auf
-#### real boy
-- [ ] create virtual cube out of real one
-#### optimization
-- [ ] go through comments and put specifics here
-#### other stuff
-- [ ] cube visualizer
-  - [ ] from binary to color
-  - [ ] from cube to color
-  - [ ] moving faces
-  - [ ] think of more things to do because i know there are more things to do
-#### readme
-- [ ] debug tab
-- [ ] cubevis tab
-- [ ] how to help
+# DISCLAIMER
+This project is still very much a work in progress. 
+This will not be done for at least another few months if not a year or two.
+Try not to expect too much, but if you do see an issue that might arise
+please let me know.

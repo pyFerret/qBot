@@ -456,16 +456,18 @@ btn_fix.grid(row=4, column=1, padx=1, pady=1, sticky="nesw")
 frm_grid.pack()
 box_list.pack()
 
-tab_parent.pack(expand=1, fill="both")
-
 
 # ROTATE TAB
 
 
 def rotate(rotate_dir):
-    rotate_input = txt_rotateInput.get()  # TODO: finish the rotation function
-    if rotate_dir == "X":
-        pass
+    rotate_input = txt_rotateInput.get()
+    rotate_output = ""
+    rotations = json.load(open("rotations.json"))
+    for i in rotate_input.split(" "):
+        rotate_output += rotations[rotate_dir][i] + " "
+    txt_rotateOutput.delete(0, END)
+    txt_rotateOutput.insert(END, rotate_output[:-1])
 
 
 frm_rotateCube = Frame(tab_cubro)
@@ -473,12 +475,12 @@ frm_rotateIO = Frame(tab_cubro)
 
 frm_rotateButtons = Frame(frm_rotateCube)
 
-btn_xn = Button(frm_rotateButtons, text="X",  width=3)
-btn_xi = Button(frm_rotateButtons, text="X'", width=3)
-btn_yn = Button(frm_rotateButtons, text="Y",  width=3)
-btn_yi = Button(frm_rotateButtons, text="Y'", width=3)
-btn_zn = Button(frm_rotateButtons, text="Z",  width=3)
-btn_zi = Button(frm_rotateButtons, text="Z'", width=3)
+btn_xn = Button(frm_rotateButtons, text="X",  command=lambda: rotate("X"),  width=3)
+btn_xi = Button(frm_rotateButtons, text="X'", command=lambda: rotate("X'"), width=3)
+btn_yn = Button(frm_rotateButtons, text="Y",  command=lambda: rotate("Y"),  width=3)
+btn_yi = Button(frm_rotateButtons, text="Y'", command=lambda: rotate("Y'"), width=3)
+btn_zn = Button(frm_rotateButtons, text="Z",  command=lambda: rotate("Z"),  width=3)
+btn_zi = Button(frm_rotateButtons, text="Z'", command=lambda: rotate("Z'"), width=3)
 
 btn_xn.grid(column=0, row=0, padx=1, pady=1, sticky="nesw")
 btn_xi.grid(column=1, row=0, padx=1, pady=1, sticky="nesw")
@@ -489,7 +491,7 @@ btn_zi.grid(column=1, row=2, padx=1, pady=1, sticky="nesw")
 
 frm_rotateButtons.pack()
 
-btn_rotateDelete = Button(frm_rotateCube, text="Delete", width=15)
+btn_rotateDelete = Button(frm_rotateCube, text="Delete", width=15)  # TODO: make the delete button do something
 
 btn_rotateDelete.pack()
 
@@ -497,11 +499,17 @@ frm_rotateCube.pack()
 
 lbl_rotateInput = Label(frm_rotateIO, text="input moves to rotate here")
 txt_rotateInput = Entry(frm_rotateIO, width=25)
+lbl_rotateOutput = Label(frm_rotateIO, text="rotated moves will appear here")
+txt_rotateOutput = Entry(frm_rotateIO, width=25)
 
 lbl_rotateInput.grid(column=0, row=0, padx=1, pady=2, sticky="nesw")
 txt_rotateInput.grid(column=0, row=1, padx=1, pady=2, sticky="nesw")
+lbl_rotateOutput.grid(column=0, row=2, padx=1, pady=2, sticky="nesw")
+txt_rotateOutput.grid(column=0, row=3, padx=1, pady=2, sticky="nesw")
 
 frm_rotateIO.pack(pady=5)
+
+tab_parent.pack(expand=1, fill="both")
 
 """
 ## CUBEVIS TAB

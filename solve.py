@@ -138,4 +138,3 @@ class Solve:
         self.moves = _moves
         self.execute()
         print(self.Cube.cube)
-    
