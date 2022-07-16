@@ -3,3 +3,4 @@
 .vscode/launch.json
 assets/visualizer/cubevis.png
 *.cube
+.idea
