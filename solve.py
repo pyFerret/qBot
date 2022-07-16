@@ -120,8 +120,8 @@ class Solve:
             elif i == "B2":
                 self.Cube.B()
                 self.Cube.B()
-            elif i == "thefuck":
-                print("the fuck")
+            else:
+                print("not a valid move")
 
     def checkSolved(self):  # checks if the cube is solved
         wrongbool = True
