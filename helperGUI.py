@@ -531,3 +531,5 @@ lbl_img.pack()
 btn_update.pack()
 """
 root.mainloop()
+
+closing_remarks = "thanks for using qbot"
