@@ -9,6 +9,9 @@ import json
 # scramble it, and solve it entirely.
 
 
+# TODO: add task list to this file and also the rest of them
+
+
 class Solve:
 
     # to create a solve, give a cube to solve,

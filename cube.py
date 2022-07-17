@@ -12,9 +12,10 @@ class Cube:
 
     def __init__(self, sort, scramble):
         self.cube = bcc.form_cube(sort, scramble)
-        # this is the actual virtual cube.
-        # the rest of the file is manipulation
-        # of said actual virtual cube
+        # this is the actual virtual
+        # cube. the rest of the class
+        # is manipulation of said actual
+        # virtual cube
 
         self.nRL = ["b", "h", "s", "y"]  # nRL stands for Not Right or Left
         self.nUD = ["j", "l", "o", "q"]  # nUD stands for Not Up or Down
@@ -32,13 +33,15 @@ class Cube:
         self.cube[p][0] = self.edge_check(s, self.cube[p][0], p)
 
     def R(self, _inverted=False):  # this function will turn the right (red) side clockwise (unless inverted is true)
-        if _inverted:                # if its inverted it will do the inverse move (R -> R')
+        if _inverted:              # if its inverted it will do the inverse move (R -> R')
             for i in self.cube:
                 i = str(i)
                 # I'm looking at this now, and I feel like these two lines
                 # could be a lot better if I didn't do the second one,
                 # and instead made it a separate variable. I think I
                 # will change it in the future, but I don't have time rn
+
+                # TODO: consolidate i = str(i)
 
                 piece = self.cube[i][1]  # the location of the piece being dealt with currently
 
@@ -70,6 +73,8 @@ class Cube:
             for i in self.cube:
                 i = str(i)
 
+                # TODO: consolidate i = str(i)
+
                 piece = self.cube[i][1]
 
                 if piece == 9:  # the next_pair four ifs move the corners around the right side
@@ -98,9 +103,11 @@ class Cube:
                     self.ori_edge(i, "R")
 
     def L(self, _inverted=False):  # this function will turn the left (orange) side clockwise (unless inverted is true)
-        if _inverted:                # if its inverted it will do the inverse move (L -> L')
+        if _inverted:              # if its inverted it will do the inverse move (L -> L')
             for i in self.cube:
                 i = str(i)
+
+                # TODO: consolidate i = str(i)
 
                 piece = self.cube[i][1]
 
@@ -131,6 +138,8 @@ class Cube:
         else:
             for i in self.cube:
                 i = str(i)
+
+                # TODO: consolidate i = str(i)
 
                 piece = self.cube[i][1]
 
@@ -164,6 +173,8 @@ class Cube:
             for i in self.cube:
                 i = str(i)
 
+                # TODO: consolidate i = str(i)
+
                 piece = self.cube[i][1]
 
                 if piece == 9:
@@ -189,6 +200,8 @@ class Cube:
         else:
             for i in self.cube:
                 i = str(i)
+
+                # TODO: consolidate i = str(i)
 
                 piece = self.cube[i][1]
 
@@ -218,6 +231,8 @@ class Cube:
             for i in self.cube:
                 i = str(i)
 
+                # TODO: consolidate i = str(i)
+
                 piece = self.cube[i][1]
 
                 if piece == 18:
@@ -243,6 +258,8 @@ class Cube:
         else:
             for i in self.cube:
                 i = str(i)
+
+                # TODO: consolidate i = str(i)
 
                 piece = self.cube[i][1]
 
@@ -271,6 +288,8 @@ class Cube:
         if _inverted:              # if its inverted it will do the inverse move (F -> F')
             for i in self.cube:
                 i = str(i)
+
+                # TODO: consolidate i = str(i)
 
                 piece = self.cube[i][1]
 
@@ -301,6 +320,8 @@ class Cube:
         else:
             for i in self.cube:
                 i = str(i)
+
+                # TODO: consolidate i = str(i)
 
                 piece = self.cube[i][1]
 
@@ -334,6 +355,8 @@ class Cube:
             for i in self.cube:
                 i = str(i)
 
+                # TODO: consolidate i = str(i)
+
                 piece = self.cube[i][1]
 
                 if piece == 1:
@@ -364,6 +387,8 @@ class Cube:
             for i in self.cube:
                 i = str(i)
 
+                # TODO: consolidate i = str(i)
+
                 piece = self.cube[i][1]
 
                 if piece == 1:
@@ -390,7 +415,11 @@ class Cube:
                 elif piece == 12:
                     self.piece_change(i, 2)
                     self.ori_edge(i, "B")
+    # TODO: figure out what the fuck static means
 
+                    # 420 lines lmfao blaze it
+
+    # that task is a joke i know what it means i just need to figure out how to fix it
     def corner_OCCW(self, _co):
         _co -= 1
         if _co == 0:
@@ -416,9 +445,6 @@ class Cube:
             for i in self.nFB:
                 if i == _piece:
                     return self.ori_swap(_ori)
-
-                    # 420 lines lmfao blaze it
-
         return _ori
 
     def ori_swap(self, _ori):

@@ -38,6 +38,7 @@ with open("moves/movesets.json", "r") as file:
 currentPair = ["ja", [1, 10], [0, 1]]
 
 
+# TODO? consolidate all pair changes into a single reference table (json probably)
 def next_pair():
     global currentPair
     currentPair[2][0] += 1
@@ -76,6 +77,9 @@ def next_pair():
                             [1, 17],
                             [1, 9]
                         ]
+
+
+# TODO: rename debug functions to more accurate name
 
 
 def check():
@@ -117,6 +121,7 @@ def manu():
     check()
 
 
+# TODO: consolidate next 4 functions into 1
 def ja():
     txt_manu.delete(0, END)
     txt_manu.insert(0, "ja ")
@@ -258,6 +263,7 @@ def scmbl():
         solve.execute()
 
 
+# TODO: finish inputting f2l pairs (dedicate an hour every few days)
 def ftwol():
     command = txt_enter.get().split()
     if len(command) == 0:
@@ -266,10 +272,12 @@ def ftwol():
         solve.f2l(int(command[1]) - 1)
 
 
+# TODO: recognition, input oll algorithms, and execution
 def oll():
     pass
 
 
+# TODO: recognition, input pll algorithms, and execution
 def pll():
     pass
 
@@ -293,7 +301,7 @@ def box():
     elif txt_enter.get() == "moves":
         box_list.insert(END, solve.fullmoves)
         box_nl()
-    elif txt_enter.get().split()[0] == "binary":
+    elif txt_enter.get().split()[0] == "binary":  # TODO fix: IndexError: list has no items and so there is no index[0]
         form_bin(txt_enter.get().split()[1], solve.Cube.cube)
     else: 
         for i in solve.Cube.cube:
@@ -303,6 +311,7 @@ def box():
         box_nl()
 
 
+# TODO: rename function
 def fix():
     with open("moves/movevalues.json") as new_file:
         movefix = json.load(new_file)
@@ -407,18 +416,20 @@ def fix():
             else:
                 fixed = False
         except IndexError:
+
+            # 420 lines lmfao blaze it
+
             final_list += moves_list[i]
     solve.fullmoves = final_list
 
 
+# TODO: rename function
 def clear():
     txt_enter.delete(0, END)
 
 
+# TODO: rename function
 def fullSolve():
-
-    # 420 lines lmfao blaze it
-
     solve.cross()
     solve.fullf2l()
 
@@ -459,7 +470,7 @@ box_list.pack()
 
 # ROTATE TAB
 
-
+# TODO: move the rotate function from helperGUI to either solve or cube
 def rotate(rotate_dir):
     rotate_input = txt_rotateInput.get()
     rotate_output = ""
@@ -491,7 +502,8 @@ btn_zi.grid(column=1, row=2, padx=1, pady=1, sticky="nesw")
 
 frm_rotateButtons.pack()
 
-btn_rotateDelete = Button(frm_rotateCube, text="Delete", width=15)  # TODO: make the delete button do something
+# TODO: make the delete button do something
+btn_rotateDelete = Button(frm_rotateCube, text="Delete", width=15)
 
 btn_rotateDelete.pack()
 
@@ -511,6 +523,7 @@ frm_rotateIO.pack(pady=5)
 
 tab_parent.pack(expand=1, fill="both")
 
+# TODO: diagnose cubevis, fix cubevis
 """
 ## CUBEVIS TAB
 
