@@ -4,7 +4,6 @@ import binaryTranslation.bincubeconvert as bcc
 # If you would like a new cube you can just make one with this class
 
 
-# noinspection PyMethodMayBeStatic
 class Cube:
 
     # the virtual cube, in most files that it is accessed, 
@@ -416,10 +415,10 @@ class Cube:
         elif _side == "F" or _side == "B":
             for i in self.nFB:
                 if i == _piece:
+                    return self.ori_swap(_ori)
 
                     # 420 lines lmfao blaze it
 
-                    return self.ori_swap(_ori)
         return _ori
 
     def ori_swap(self, _ori):

@@ -20,32 +20,32 @@ class ColorConverter:
         self.white = [255, 255, 255]
         
         self.piece_colors = {
-            'a': [self.white, self.orange, self.blue],
-            'b': [self.white, self.blue],
-            'c': [self.white, self.blue, self.red],
-            'd': [self.white, self.orange],
+            'a': [self.white,  self.orange, self.blue],
+            'b': [self.white,  self.blue],
+            'c': [self.white,  self.blue,   self.red],
+            'd': [self.white,  self.orange],
             'e': [self.white],
-            'f': [self.white, self.red],
-            'g': [self.white, self.green, self.orange],
-            'h': [self.white, self.green],
-            'i': [self.white, self.red, self.green],
-            'j': [self.blue, self.orange],
+            'f': [self.white,  self.red],
+            'g': [self.white,  self.green,  self.orange],
+            'h': [self.white,  self.green],
+            'i': [self.white,  self.red,    self.green],
+            'j': [self.blue,   self.orange],
             'k': [self.blue],
-            'l': [self.blue, self.red],
+            'l': [self.blue,   self.red],
             'm': [self.orange],
             'n': [self.red],
-            'o': [self.green, self.orange],
+            'o': [self.green,  self.orange],
             'p': [self.green],
-            'q': [self.green, self.red],
-            'r': [self.yellow, self.blue, self.orange],
+            'q': [self.green,  self.red],
+            'r': [self.yellow, self.blue,   self.orange],
             's': [self.yellow, self.blue],
-            't': [self.yellow, self.red, self.blue],
+            't': [self.yellow, self.red,    self.blue],
             'u': [self.yellow, self.orange],
             'v': [self.yellow],
             'w': [self.yellow, self.red],
             'x': [self.yellow, self.orange, self.green],
             'y': [self.yellow, self.green],
-            'z': [self.yellow, self.green, self.red]
+            'z': [self.yellow, self.green,  self.red]
         }
         
         self.cube_colors = []
