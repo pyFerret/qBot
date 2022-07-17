@@ -11,7 +11,7 @@ from tkinter import ttk
 # import json
 from solve import *
 # from colorcubeconvert import *
-from binaryTranslation.bincubeconvert import *
+from conversion.binaryTranslation.bincubeconvert import *
 
 root = Tk()
 root.title("qBot Helper GUI")

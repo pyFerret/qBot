@@ -1,4 +1,4 @@
-import binaryTranslation.bincubeconvert as bcc
+import conversion.binaryTranslation.bincubeconvert as bcc
 
 # This file contains the class that I use to dictate what a cube is
 # If you would like a new cube you can just make one with this class

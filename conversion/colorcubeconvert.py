@@ -4,7 +4,7 @@
 # I am not looking forward to this lmao
 
 import png
-from binaryTranslation.bincubeconvert import *
+from conversion.binaryTranslation.bincubeconvert import *
 
 
 class ColorConverter:

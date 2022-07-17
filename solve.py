@@ -1,5 +1,5 @@
 import cube
-import binaryTranslation.bincubeconvert as bcc
+import conversion.binaryTranslation.bincubeconvert as bcc
 import json
 
 
