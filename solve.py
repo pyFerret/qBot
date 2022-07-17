@@ -18,7 +18,7 @@ class Solve:
     def __init__(self, _cube):
         self.moves = ""
         self.fullmoves = ""
-        with open("movesets.json", "r") as file:
+        with open("moves/movesets.json", "r") as file:
             self.movesets = json.load(file)
         self.Cube = _cube
         self.cCube = cube.Cube(True, "scrambles/solved.cube")

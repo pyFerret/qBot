@@ -32,7 +32,7 @@ tab_parent.add(tab_cubev, text="Cube Vis")
 # DEBUG TAB
 
 
-with open("movesets.json", "r") as file:
+with open("moves/movesets.json", "r") as file:
     moves = json.load(file)
 
 currentPair = ["ja", [1, 10], [0, 1]]
@@ -103,7 +103,7 @@ def skip():
 
 
 def save():
-    with open("movesets.json", "w") as new_file:
+    with open("moves/movesets.json", "w") as new_file:
         json.dump(moves, new_file, indent=4)
 
 
@@ -304,7 +304,7 @@ def box():
 
 
 def fix():
-    with open("movevalues.json") as new_file:
+    with open("moves/movevalues.json") as new_file:
         movefix = json.load(new_file)
     moves_list = solve.fullmoves.split()
     final_list = ""
@@ -463,7 +463,7 @@ box_list.pack()
 def rotate(rotate_dir):
     rotate_input = txt_rotateInput.get()
     rotate_output = ""
-    rotations = json.load(open("rotations.json"))
+    rotations = json.load(open("moves/rotations.json"))
     for i in rotate_input.split(" "):
         rotate_output += rotations[rotate_dir][i] + " "
     txt_rotateOutput.delete(0, END)
