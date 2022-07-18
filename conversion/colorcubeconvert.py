@@ -7,6 +7,9 @@ import png
 from conversion.binaryTranslation.bincubeconvert import *
 
 
+# TODO: diagnose whats wrong with this and fix it (add todo comments)
+
+
 class ColorConverter:
     def __init__(self, cube=form_cube(_sorted=True)):
         self.img = png.Writer(width=12, height=9, greyscale=False)

@@ -5,6 +5,8 @@
 # convert from bin form to cube form, and
 # convert from cube form to string form.
 
+# TODO: maybe make this file a little more family friendly
+
 def form_cube(_sorted=False, _scramble="scrambles/solved.cube"):
     f = open(_scramble, "rb")
     cube = {}
@@ -129,7 +131,7 @@ def form_cube(_sorted=False, _scramble="scrambles/solved.cube"):
                 print("fucked up on edge" + " " + str(i) + " " + str(byte))
         byte = f.read(1)
     if _sorted:
-        return dict(sorted(cube.items(), key=lambda x: x))
+        return dict(sorted(cube.items(), key=lambda x: x))  # TODO: figure out why this is throwing a warning
     return cube
 
 
@@ -139,6 +141,7 @@ def form_bin(name, cube):
         f.write(convert_cube(cube[i]))
 
 
+# TODO: return straight from the if instead of assigning a variable
 def convert_cube(cube_form):
     if cube_form == [1, 1]:
         hex_form = b'\x00'
@@ -253,6 +256,7 @@ def convert_cube(cube_form):
     return hex_form
 
 
+# TODO: return straight from the if instead of assigning a variable
 def bing(cube_form):
     if cube_form == [1, 1]:
         hex_form = "00"

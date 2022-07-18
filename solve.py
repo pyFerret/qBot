@@ -9,9 +9,6 @@ import json
 # scramble it, and solve it entirely.
 
 
-# TODO: add task list to this file and also the rest of them
-
-
 class Solve:
 
     # to create a solve, give a cube to solve,
@@ -65,6 +62,8 @@ class Solve:
     def full_f2l(self):  # solve all pairs
         for i in range(4):
             self.f2l(i)
+
+    # TODO: add oll and pll recognition + execution functions
 
     def locate(self, piece):  # locate a piece on the cube (self, piece to locate)
         return self.Cube.cube[piece]
@@ -136,6 +135,8 @@ class Solve:
                 wrong.append(i)
                 wrongbool = False
         return wrongbool, wrong
+
+    # TODO: add "get_moves" function that returns the moves of the cube
 
     def manual(self, _moves):  # I put this in to help with putting in movesets (self, moves to execute)
         self.moves = _moves
