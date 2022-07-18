@@ -4,6 +4,30 @@ import conversion.binaryTranslation.bincubeconvert as bcc
 # If you would like a new cube you can just make one with this class
 
 
+def ori_swap(_ori):
+    if _ori == 1:
+        return 2
+    elif _ori == 2:
+        return 1
+    else:
+        print("something happened when switching orientation")
+        return
+
+
+def corner_OCW(_co):
+    _co += 1
+    if _co == 4:
+        _co = 1
+    return _co
+
+
+def corner_OCCW(_co):
+    _co -= 1
+    if _co == 0:
+        _co = 3
+    return _co
+
+
 class Cube:
 
     # the virtual cube, in most files that it is accessed, 
@@ -27,7 +51,7 @@ class Cube:
         self.cube[p][1] = x        # it's probably not the best way to do it, but I don't really care
 
     def ori_corner(self, p, w):  # this will change the orientation of a corner
-        self.cube[p][0] = self.corner_OCW(self.cube[p][0]) if w == "OCW" else self.corner_OCCW(self.cube[p][0])
+        self.cube[p][0] = corner_OCW(self.cube[p][0]) if w == "OCW" else corner_OCCW(self.cube[p][0])
 
     def ori_edge(self, p, s):  # this will change the orientation of an edge
         self.cube[p][0] = self.edge_check(s, self.cube[p][0], p)
@@ -392,6 +416,9 @@ class Cube:
                 piece = self.cube[i][1]
 
                 if piece == 1:
+
+                    # 420 lines lmfao blaze it
+
                     self.piece_change(i, 18)
                     self.ori_corner(i, "OCCW")
                 elif piece == 18:
@@ -415,43 +442,18 @@ class Cube:
                 elif piece == 12:
                     self.piece_change(i, 2)
                     self.ori_edge(i, "B")
-    # TODO: figure out what the fuck static means
-
-                    # 420 lines lmfao blaze it
-
-    # that task is a joke i know what it means i just need to figure out how to fix it
-    def corner_OCCW(self, _co):
-        _co -= 1
-        if _co == 0:
-            _co = 3
-        return _co
-
-    def corner_OCW(self, _co):
-        _co += 1
-        if _co == 4:
-            _co = 1
-        return _co
 
     def edge_check(self, _side, _ori, _piece):
         if _side == "R" or _side == "L":
             for i in self.nRL:
                 if i == _piece:
-                    return self.ori_swap(_ori)
+                    return ori_swap(_ori)
         elif _side == "U" or _side == "D":
             for i in self.nUD:
                 if i == _piece:
-                    return self.ori_swap(_ori)
+                    return ori_swap(_ori)
         elif _side == "F" or _side == "B":
             for i in self.nFB:
                 if i == _piece:
-                    return self.ori_swap(_ori)
+                    return ori_swap(_ori)
         return _ori
-
-    def ori_swap(self, _ori):
-        if _ori == 1:
-            return 2
-        elif _ori == 2:
-            return 1
-        else: 
-            print("something happened when switching orientation")
-            return 
