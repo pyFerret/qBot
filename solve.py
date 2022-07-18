@@ -16,7 +16,7 @@ class Solve:
 
     # to create a solve, give a cube to solve,
     # run "cross(), f2lfull(), oll(), and pll()"
-    # and to get the moves, call "getMoves"
+    # and to get the moves, call "get_moves"
 
     def __init__(self, _cube):
         self.moves = ""
@@ -32,7 +32,7 @@ class Solve:
     def cross(self):  # solve all cross
         cross_pieces = ["b", "d", "f", "h"]
         for i, a in enumerate(cross_pieces):
-            self.moves = self.crossMovements(self.locate(a), i)
+            self.moves = self.cross_movements(self.locate(a), i)
             self.fullmoves = self.add_moves()
             self.execute()
 
@@ -62,14 +62,14 @@ class Solve:
             self.fullmoves = self.add_moves()
             self.execute()
 
-    def fullf2l(self):  # solve all pairs
+    def full_f2l(self):  # solve all pairs
         for i in range(4):
             self.f2l(i)
 
     def locate(self, piece):  # locate a piece on the cube (self, piece to locate)
         return self.Cube.cube[piece]
 
-    def crossMovements(self, cPos, step):  # find movements for cross (self, current position, cross edge)
+    def cross_movements(self, cPos, step):  # find movements for cross (self, current position, cross edge)
         if step == 0:
             return self.movesets["cross"]["b"][str(cPos[1])][str(cPos[0])]
         elif step == 1:
@@ -126,7 +126,7 @@ class Solve:
             else:
                 print("not a valid move")
 
-    def checkSolved(self):  # checks if the cube is solved
+    def check_solved(self):  # checks if the cube is solved
         wrongbool = True
         wrong = []
         for i in self.Cube.cube:

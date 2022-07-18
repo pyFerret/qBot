@@ -267,7 +267,7 @@ def scmbl():
 def ftwol():
     command = txt_enter.get().split()
     if len(command) == 0:
-        solve.fullf2l()
+        solve.full_f2l()
     elif command[0] == "pair":
         solve.f2l(int(command[1]) - 1)
 
@@ -307,7 +307,7 @@ def box():
         for i in solve.Cube.cube:
             box_list.insert(END, str(solve.Cube.cube[i]))
             box_nl()
-        box_list.insert(END, solve.checkSolved())
+        box_list.insert(END, solve.check_solved())
         box_nl()
 
 
@@ -431,7 +431,7 @@ def clear():
 # TODO: rename function
 def fullSolve():
     solve.cross()
-    solve.fullf2l()
+    solve.full_f2l()
 
 
 frm_grid = Frame(tab_solve)
