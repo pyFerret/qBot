@@ -79,17 +79,14 @@ def next_pair():
                         ]
 
 
-# TODO: rename debug functions to more accurate name
-
-
-def check():
+def check_pair():
     try:
         lbl_done["text"] = moves["f2l"][currentPair[0]][bing(currentPair[1])][bing(currentPair[2])]
     except KeyError:
         lbl_done["text"] = "not input yet"
 
 
-def load():
+def load_pair():
     global moves
     try:
         moves["f2l"][currentPair[0]][bing(currentPair[1])][bing(currentPair[2])] = txt_move.get()
@@ -97,28 +94,27 @@ def load():
         moves["f2l"][currentPair[0]].update({bing(currentPair[1]): {bing(currentPair[2]): txt_move.get()}})
     next_pair()
     lbl_pair["text"] = str(currentPair)
-    check()
+    check_pair()
 
 
-def skip():
+def skip_pair():
     next_pair()
     lbl_pair.config(text=str(currentPair))
-    check()
+    check_pair()
 
 
-def save():
+def save_moves():
     with open("moves/movesets.json", "w") as new_file:
         json.dump(moves, new_file, indent=4)
 
 
-def manu():
+def input_moves():
     global currentPair
     got_pair = txt_manu.get().split()
     currentPair = [got_pair[0],
                    [int(got_pair[1]), int(got_pair[2])],
                    [int(got_pair[3]), int(got_pair[4])]]
     lbl_pair["text"] = str(currentPair)
-    check()
 
 
 # TODO: consolidate next 4 functions into 1
@@ -135,6 +131,7 @@ def lc():
 def og():
     txt_manu.delete(0, END)
     txt_manu.insert(0, "og ")
+    check_pair()
 
 
 def qi():
@@ -151,14 +148,14 @@ txt_manu = Entry(frm_most)
 lbl_done = Label(frm_most,   text="done")
 lbl_manu = Label(frm_most,   text="manual pair",                                                        width=12)
 lbl_pair = Label(frm_most,   text="f2l pair",                                                           width=12)
-btn_load = Button(frm_most,  text="load pair",  command=load)
-btn_skip = Button(frm_most,  text="skip pair",  command=skip)
-btn_save = Button(frm_most,  text="save moves", command=save)
-btn_manu = Button(frm_most,  text="input pair", command=manu)
 btn_ja = Button(frm_jloq,    text="ja",         command=ja,                                             width=3)
 btn_lc = Button(frm_jloq,    text="lc",         command=lc,                                             width=3)
 btn_og = Button(frm_jloq,    text="og",         command=og,                                             width=3)
 btn_qi = Button(frm_jloq,    text="qi",         command=qi,                                             width=3)
+btn_load = Button(frm_most, text="load pair", command=load_pair)
+btn_skip = Button(frm_most, text="skip pair", command=skip_pair)
+btn_save = Button(frm_most, text="save moves", command=save_moves)
+btn_manu = Button(frm_most, text="input pair", command=input_moves)
 btn_1 = Button(frm_npad,     text="1",          command=lambda: txt_manu.insert(END, "1"),              width=3)
 btn_2 = Button(frm_npad,     text="2",          command=lambda: txt_manu.insert(END, "2"),              width=3)
 btn_3 = Button(frm_npad,     text="3",          command=lambda: txt_manu.insert(END, "3"),              width=3)

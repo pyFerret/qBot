@@ -65,7 +65,7 @@ class Cube:
                 # and instead made it a separate variable. I think I
                 # will change it in the future, but I don't have time rn
 
-                # TODO: consolidate i = str(i)
+                # TODO: either figure out if i can actually make that better or just use what i already have
 
                 piece = self.cube[i][1]  # the location of the piece being dealt with currently
 
