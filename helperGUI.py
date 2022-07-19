@@ -115,28 +115,12 @@ def input_moves():
                    [int(got_pair[1]), int(got_pair[2])],
                    [int(got_pair[3]), int(got_pair[4])]]
     lbl_pair["text"] = str(currentPair)
-
-
-# TODO: consolidate next 4 functions into 1
-def ja():
-    txt_manu.delete(0, END)
-    txt_manu.insert(0, "ja ")
-
-
-def lc():
-    txt_manu.delete(0, END)
-    txt_manu.insert(0, "lc ")
-
-
-def og():
-    txt_manu.delete(0, END)
-    txt_manu.insert(0, "og ")
     check_pair()
 
 
-def qi():
+def insert_pair(pair):
     txt_manu.delete(0, END)
-    txt_manu.insert(0, "qi ")
+    txt_manu.delete(0, pair)
 
 
 frm_most = Frame(tab_debug)
@@ -148,14 +132,14 @@ txt_manu = Entry(frm_most)
 lbl_done = Label(frm_most,   text="done")
 lbl_manu = Label(frm_most,   text="manual pair",                                                        width=12)
 lbl_pair = Label(frm_most,   text="f2l pair",                                                           width=12)
-btn_ja = Button(frm_jloq,    text="ja",         command=ja,                                             width=3)
-btn_lc = Button(frm_jloq,    text="lc",         command=lc,                                             width=3)
-btn_og = Button(frm_jloq,    text="og",         command=og,                                             width=3)
-btn_qi = Button(frm_jloq,    text="qi",         command=qi,                                             width=3)
 btn_load = Button(frm_most, text="load pair", command=load_pair)
 btn_skip = Button(frm_most, text="skip pair", command=skip_pair)
 btn_save = Button(frm_most, text="save moves", command=save_moves)
 btn_manu = Button(frm_most, text="input pair", command=input_moves)
+btn_ja = Button(frm_jloq,    text="ja",         command=lambda: insert_pair("ja"),                      width=3)
+btn_lc = Button(frm_jloq,    text="lc",         command=lambda: insert_pair("lc"),                      width=3)
+btn_og = Button(frm_jloq,    text="og",         command=lambda: insert_pair("og"),                      width=3)
+btn_qi = Button(frm_jloq,    text="qi",         command=lambda: insert_pair("qi"),                      width=3)
 btn_1 = Button(frm_npad,     text="1",          command=lambda: txt_manu.insert(END, "1"),              width=3)
 btn_2 = Button(frm_npad,     text="2",          command=lambda: txt_manu.insert(END, "2"),              width=3)
 btn_3 = Button(frm_npad,     text="3",          command=lambda: txt_manu.insert(END, "3"),              width=3)
