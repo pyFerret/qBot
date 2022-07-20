@@ -16,6 +16,11 @@ from conversion.binaryTranslation.bincubeconvert import *
 root = Tk()
 root.title("qBot Helper GUI")
 
+
+def entry_clear(entry):
+    entry.delete(0, END)
+
+
 tab_parent = ttk.Notebook(root)
 
 tab_solve = ttk.Frame(tab_parent)
@@ -282,7 +287,7 @@ def box():
     elif txt_enter.get() == "moves":
         box_list.insert(END, solve.fullmoves)
         box_nl()
-    elif txt_enter.get().split()[0] == "binary":  # TODO fix: IndexError: list has no items and so there is no index[0]
+    elif "binary" in txt_enter.get():
         form_bin(txt_enter.get().split()[1], solve.Cube.cube)
     else: 
         for i in solve.Cube.cube:
@@ -292,8 +297,7 @@ def box():
         box_nl()
 
 
-# TODO: rename function
-def fix():
+def fix_moves():
     with open("moves/movevalues.json") as new_file:
         movefix = json.load(new_file)
     moves_list = solve.fullmoves.split()
@@ -404,13 +408,11 @@ def fix():
     solve.fullmoves = final_list
 
 
-# TODO: rename function
-def clear():
+def clear_entry():
     txt_enter.delete(0, END)
 
 
-# TODO: rename function
-def fullSolve():
+def full_solve():
     solve.cross()
     solve.full_f2l()
 
@@ -424,12 +426,12 @@ btn_scmbl = Button(frm_grid, text="scramble",   command=scmbl,       width=30)
 btn_cross = Button(frm_grid, text="cross",      command=solve.cross)
 btn_ftwol = Button(frm_grid, text="f2l",        command=ftwol)
 btn_print = Button(frm_grid, text="list",       command=box)
-btn_clear = Button(frm_grid, text="clear",      command=clear)
-btn_full = Button(frm_grid,  text="full solve", command=fullSolve)
+btn_clear = Button(frm_grid, text="clear",      command=clear_entry)
+btn_full = Button(frm_grid,  text="full solve", command=full_solve)
 btn_oll = Button(frm_last,   text="oll",        command=oll,         width=10)
 btn_pll = Button(frm_last,   text="pll",        command=pll,         width=10)
 btn_lastl = Button(frm_last, text="last layer", command=lastl,       width=10)
-btn_fix = Button(frm_grid,   text="fix moves",  command=fix)
+btn_fix = Button(frm_grid,   text="fix moves",  command=fix_moves)
 
 lbl_enter.grid(row=0, column=0, padx=1, pady=1, sticky="nesw")
 txt_enter.grid(row=1, column=0, padx=1, pady=1, sticky="nesw")
@@ -451,15 +453,15 @@ box_list.pack()
 
 # ROTATE TAB
 
-# TODO: move the rotate function from helperGUI to either solve or cube
-def rotate(rotate_dir):
-    rotate_input = txt_rotateInput.get()
-    rotate_output = ""
-    rotations = json.load(open("moves/rotations.json"))
-    for i in rotate_input.split(" "):
-        rotate_output += rotations[rotate_dir][i] + " "
-    txt_rotateOutput.delete(0, END)
-    txt_rotateOutput.insert(END, rotate_output[:-1])
+
+def _rotate(_input, rotate_dir, _output):
+    _output.delete(0, END)
+    _output.insert(END, rotate(_input.get(), rotate_dir))
+
+
+def swapIO(_input, _output):
+    _output.delete(0, END)
+    _output.insert(0, _input.get())
 
 
 frm_rotateCube = Frame(tab_cubro)
@@ -467,12 +469,12 @@ frm_rotateIO = Frame(tab_cubro)
 
 frm_rotateButtons = Frame(frm_rotateCube)
 
-btn_xn = Button(frm_rotateButtons, text="X",  command=lambda: rotate("X"),  width=3)
-btn_xi = Button(frm_rotateButtons, text="X'", command=lambda: rotate("X'"), width=3)
-btn_yn = Button(frm_rotateButtons, text="Y",  command=lambda: rotate("Y"),  width=3)
-btn_yi = Button(frm_rotateButtons, text="Y'", command=lambda: rotate("Y'"), width=3)
-btn_zn = Button(frm_rotateButtons, text="Z",  command=lambda: rotate("Z"),  width=3)
-btn_zi = Button(frm_rotateButtons, text="Z'", command=lambda: rotate("Z'"), width=3)
+btn_xn = Button(frm_rotateButtons, text="X",  command=lambda: _rotate(txt_rotateInput, "X",  txt_rotateOutput), width=3)
+btn_xi = Button(frm_rotateButtons, text="X'", command=lambda: _rotate(txt_rotateInput, "X'", txt_rotateOutput), width=3)
+btn_yn = Button(frm_rotateButtons, text="Y",  command=lambda: _rotate(txt_rotateInput, "Y",  txt_rotateOutput), width=3)
+btn_yi = Button(frm_rotateButtons, text="Y'", command=lambda: _rotate(txt_rotateInput, "Y'", txt_rotateOutput), width=3)
+btn_zn = Button(frm_rotateButtons, text="Z",  command=lambda: _rotate(txt_rotateInput, "Z",  txt_rotateOutput), width=3)
+btn_zi = Button(frm_rotateButtons, text="Z'", command=lambda: _rotate(txt_rotateInput, "Z'", txt_rotateOutput), width=3)
 
 btn_xn.grid(column=0, row=0, padx=1, pady=1, sticky="nesw")
 btn_xi.grid(column=1, row=0, padx=1, pady=1, sticky="nesw")
@@ -483,8 +485,7 @@ btn_zi.grid(column=1, row=2, padx=1, pady=1, sticky="nesw")
 
 frm_rotateButtons.pack()
 
-# TODO: make the delete button do something
-btn_rotateDelete = Button(frm_rotateCube, text="Delete", width=15)
+btn_rotateDelete = Button(frm_rotateCube, text="Delete", command=lambda: entry_clear(txt_rotateInput), width=15)
 
 btn_rotateDelete.pack()
 
@@ -494,11 +495,13 @@ lbl_rotateInput = Label(frm_rotateIO, text="input moves to rotate here")
 txt_rotateInput = Entry(frm_rotateIO, width=25)
 lbl_rotateOutput = Label(frm_rotateIO, text="rotated moves will appear here")
 txt_rotateOutput = Entry(frm_rotateIO, width=25)
+btn_swap = Button(frm_rotateIO, text="swap", command=lambda: swapIO(txt_rotateOutput, txt_rotateInput))
 
-lbl_rotateInput.grid(column=0, row=0, padx=1, pady=2, sticky="nesw")
-txt_rotateInput.grid(column=0, row=1, padx=1, pady=2, sticky="nesw")
-lbl_rotateOutput.grid(column=0, row=2, padx=1, pady=2, sticky="nesw")
-txt_rotateOutput.grid(column=0, row=3, padx=1, pady=2, sticky="nesw")
+btn_swap.grid(column=0, row=2, padx=1, pady=2, sticky="nesw")
+lbl_rotateInput.grid(column=1, row=0, padx=1, pady=2, sticky="nesw")
+txt_rotateInput.grid(column=1, row=1, padx=1, pady=2, sticky="nesw")
+lbl_rotateOutput.grid(column=1, row=2, padx=1, pady=2, sticky="nesw")
+txt_rotateOutput.grid(column=1, row=3, padx=1, pady=2, sticky="nesw")
 
 frm_rotateIO.pack(pady=5)
 

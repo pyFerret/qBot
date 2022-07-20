@@ -8,6 +8,14 @@ import json
 # This class can create its own cube, 
 # scramble it, and solve it entirely.
 
+def rotate(moves, rotate_dir):
+    rotate_input = moves.split(" ")
+    rotate_output = ""
+    rotations = json.load(open("moves/rotations.json"))
+    for i in rotate_input:
+        rotate_output += rotations[rotate_dir][i] + " "
+    return rotate_output[:-1]
+
 
 class Solve:
 
