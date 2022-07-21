@@ -1,5 +1,5 @@
 {
-    "cross": { 
+    "cross": {
         "b": {
             "2": {
                 "1": "",
@@ -213,7 +213,7 @@
                 "12": "B D B' D L' D' L ",
                 "22": "R D2 R' L' D' L D' B D B' ",
                 "06": "L D L2 D' L D' B D B' ",
-                "16": "L D' L' D2 B D B' D L' D' L "
+                "16": "L D L' D2 L' D L D2 R' B' L B R L'"
             },
             "1b": {
                 "26": "B' D2 B L D L2 D2 L"

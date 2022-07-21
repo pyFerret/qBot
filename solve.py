@@ -13,7 +13,10 @@ def rotate(moves, rotate_dir):
     rotate_output = ""
     rotations = json.load(open("moves/rotations.json"))
     for i in rotate_input:
-        rotate_output += rotations[rotate_dir][i] + " "
+        if i in rotations[rotate_dir]:
+            rotate_output += rotations[rotate_dir][i] + " "
+        else:
+            rotate_output += i + " "
     return rotate_output[:-1]
 
 

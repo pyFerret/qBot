@@ -108,6 +108,11 @@ def skip_pair():
     check_pair()
 
 
+def next_free():
+    while lbl_done["text"] != "not input yet":
+        skip_pair()
+
+
 def save_moves():
     with open("moves/movesets.json", "w") as new_file:
         json.dump(moves, new_file, indent=4)
@@ -115,17 +120,17 @@ def save_moves():
 
 def input_moves():
     global currentPair
-    got_pair = txt_manu.get().split()
-    currentPair = [got_pair[0],
-                   [int(got_pair[1]), int(got_pair[2])],
-                   [int(got_pair[3]), int(got_pair[4])]]
+    manual_pair = txt_manu.get().split()
+    currentPair = [manual_pair[0],
+                   [int(manual_pair[1]), int(manual_pair[2])],
+                   [int(manual_pair[3]), int(manual_pair[4])]]
     lbl_pair["text"] = str(currentPair)
     check_pair()
 
 
 def insert_pair(pair):
     txt_manu.delete(0, END)
-    txt_manu.delete(0, pair)
+    txt_manu.insert(0, pair)
 
 
 frm_most = Frame(tab_debug)
@@ -137,14 +142,15 @@ txt_manu = Entry(frm_most)
 lbl_done = Label(frm_most,   text="done")
 lbl_manu = Label(frm_most,   text="manual pair",                                                        width=12)
 lbl_pair = Label(frm_most,   text="f2l pair",                                                           width=12)
-btn_load = Button(frm_most, text="load pair", command=load_pair)
-btn_skip = Button(frm_most, text="skip pair", command=skip_pair)
-btn_save = Button(frm_most, text="save moves", command=save_moves)
-btn_manu = Button(frm_most, text="input pair", command=input_moves)
+btn_load = Button(frm_most,  text="load pair",   command=load_pair)
+btn_skip = Button(frm_most,  text="skip pair",   command=skip_pair)
+btn_save = Button(frm_most,  text="save moves",  command=save_moves)
+btn_manu = Button(frm_most,  text="input pair",  command=input_moves)
 btn_ja = Button(frm_jloq,    text="ja",         command=lambda: insert_pair("ja"),                      width=3)
 btn_lc = Button(frm_jloq,    text="lc",         command=lambda: insert_pair("lc"),                      width=3)
 btn_og = Button(frm_jloq,    text="og",         command=lambda: insert_pair("og"),                      width=3)
 btn_qi = Button(frm_jloq,    text="qi",         command=lambda: insert_pair("qi"),                      width=3)
+btn_next = Button(frm_most,  text="next pair",  command=next_free)
 btn_1 = Button(frm_npad,     text="1",          command=lambda: txt_manu.insert(END, "1"),              width=3)
 btn_2 = Button(frm_npad,     text="2",          command=lambda: txt_manu.insert(END, "2"),              width=3)
 btn_3 = Button(frm_npad,     text="3",          command=lambda: txt_manu.insert(END, "3"),              width=3)
@@ -197,6 +203,7 @@ btn_ja.grid(row=0, column=0, padx=1, pady=1, sticky="nesw")
 btn_lc.grid(row=0, column=1, padx=1, pady=1, sticky="nesw")
 btn_og.grid(row=0, column=2, padx=1, pady=1, sticky="nesw")
 btn_qi.grid(row=0, column=3, padx=1, pady=1, sticky="nesw")
+btn_next.grid(row=4, column=1, padx=1, pady=1, sticky="nesw")
 
 btn_1.grid(row=0, column=0, padx=1, pady=1, sticky="nesw")
 btn_2.grid(row=0, column=1, padx=1, pady=1, sticky="nesw")
